@@ -28,6 +28,38 @@ namespace MyFirstMvcApp.Controllers
             return View();
         }
 
+        public IActionResult serviceDetail()
+        {
+            return View();
+        }
+
+        public IActionResult gallery()
+        {
+            return View();
+        }
+
+        public IActionResult careers()
+        {
+            return View();
+        }
+
+        public IActionResult Blog()
+        {
+            return View();
+        }
+
+        public IActionResult BlogDetail()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

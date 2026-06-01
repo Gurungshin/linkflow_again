@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"] = "service-detailed";
+}
+
+
+<div class="hero-banner position-relative">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=80" alt="LinkFlow services — modern workspace" />
+    <div class="hero-banner-overlay"></div>
+
+    <div class="hero-banner-text w-100">
+        <div class="custom-container">
+            <div class="hero-eyebrow"><span></span> What We Offer</div>
+            <h1>Services built to <em>close every gap</em> in your stack</h1>
+        </div>
+    </div>
+</div>
+
+<div class="custom-container">
+    <div class="services-grid">
+
+        <div class="content-column-left">
+
+            <div class="intro-block pb-5" id="servicesIntro">
+                <p class="mb-4">
+                    LinkFlow exists to eliminate the friction between your data, your tools, and the outcomes your team needs. We do that through four focused capabilities — each one designed to remove a specific category of operational drag from your business.
+                </p>
+                <p>
+                    Whether you need a single workflow automated or a complete integration architecture designed from scratch, every engagement starts with a conversation. Use the form to tell us what you're working with.
+                </p>
+            </div>
+
+            <div class="service-section" id="workflow">
+                <div class="svc-eyebrow"><span></span> Service 01</div>
+                <h2>Workflow <em>Automation</em></h2>
+                <p>
+                    Replace every repetitive, error-prone manual process with intelligent pipelines that trigger, route, and resolve — without a human in the loop. Your team stops copy-pasting between tabs and starts building what actually matters.
+                </p>
+                <p>
+                    Our visual workflow builder lets operations teams move fast without touching code. Engineers who want deeper control can drop into YAML at any point. Both modes write to the same underlying spec — no hidden state, no divergence.
+                </p>
+                <ul class="svc-points d-flex flex-column gap-2" style="margin-top: 24px; padding-left: 20px;">
+                    <li>Real-time trigger detection across any event source — webhook, database change, schedule, or API call</li>
+                    <li>Conditional branching and multi-step execution with full AND/OR logic support</li>
+                    <li>Fault-tolerant retry queues and dead-letter handling so partial failures never corrupt data silently</li>
+                    <li>Complete audit trail for every run — replay failed steps, inspect payloads, rollback instantly</li>
+                    <li>Scales to unlimited parallel executions with sub-15ms median trigger-to-action latency</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2" style="margin-top: 24px;">
+                    <span class="tag">Lead routing</span>
+                    <span class="tag">Invoice processing</span>
+                    <span class="tag">Onboarding flows</span>
+                    <span class="tag">Approval chains</span>
+                    <span class="tag">Report delivery</span>
+                </div>
+            </div>
+
+            <div class="service-section" id="fluxengine">
+                <div class="svc-eyebrow"><span></span> Service 02</div>
+                <h2>FluxEngine<sup style="font-size:0.5em;vertical-align:super;">TM</sup> <em>AI</em></h2>
+                <p>
+                    FluxEngine is our proprietary reasoning layer that sits between your data sources and your workflows. It interprets ambiguous signals, classifies intent, and makes decisions that previously required a human to review — at machine speed.
+                </p>
+                <p>
+                    Connect any model provider — OpenAI, Anthropic, Cohere, Mistral, or a private endpoint. FluxEngine normalises the interface so switching models never breaks a workflow. Set confidence thresholds and automatically escalate low-certainty decisions to a human queue.
+                </p>
+                <ul class="svc-points d-flex flex-column gap-2" style="margin-top: 24px; padding-left: 20px;">
+                    <li>Document intelligence — extract structured fields from invoices, contracts, and emails without rigid templates</li>
+                    <li>Sentiment and intent classification to route customer messages before they become churn risks</li>
+                    <li>Semantic search and retrieval-augmented generation grounded in your own knowledge base</li>
+                    <li>Anomaly detection that learns normal patterns and alerts on deviation before they become incidents</li>
+                    <li>Confidence-gated execution — automate what you trust, escalate what you don't</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2" style="margin-top: 24px;">
+                    <span class="tag">LLM Orchestration</span>
+                    <span class="tag">RAG Pipeline</span>
+                    <span class="tag">Vector Search</span>
+                    <span class="tag">Anomaly Detection</span>
+                    <span class="tag">Bring Your Own Model</span>
+                </div>
+            </div>
+
+            <div class="service-section" id="integrations">
+                <div class="svc-eyebrow"><span></span> Service 03</div>
+                <h2>Deep <em>Integrations</em></h2>
+                <p>
+                    200+ pre-built connectors for the tools your team already runs — authenticated in seconds via OAuth, with credentials stored in an encrypted vault and tokens refreshed automatically. You never manage API keys manually again.
+                </p>
+                <p>
+                    Anything outside our connector library can be added in any language using our open SDK. Custom connectors publish to your private registry and behave identically to native ones — same monitoring, same UI, same error handling.
+                </p>
+                <ul class="svc-points d-flex flex-column gap-2" style="margin-top: 24px; padding-left: 20px;">
+                    <li>Bidirectional sync with conflict resolution built in — edits propagate across CRM, database, and support desk consistently</li>
+                    <li>Schema versioning detects API drift before it corrupts data; roll back to a working schema in one click</li>
+                    <li>Covers CRM, communication, databases, payments, dev tooling, and analytics out of the box</li>
+                    <li>Full SDK parity — custom connectors behave identically to native ones in every interface</li>
+                    <li>256-bit AES encryption for all stored credentials; SOC 2 Type II certified infrastructure</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2" style="margin-top: 24px;">
+                    <span class="tag">Salesforce</span>
+                    <span class="tag">HubSpot</span>
+                    <span class="tag">Slack</span>
+                    <span class="tag">Postgres</span>
+                    <span class="tag">Stripe</span>
+                    <span class="tag">Jira</span>
+                    <span class="tag">Zendesk</span>
+                    <span class="tag">+193 more</span>
+                </div>
+            </div>
+
+            <div class="service-section" id="consulting">
+                <div class="svc-eyebrow"><span></span> Service 04</div>
+                <h2>Expert <em>Consulting</em></h2>
+                <p>
+                    Our implementation engineers and automation strategists embed with your team to design, build, and optimise the workflows that drive your most critical outcomes. We map every manual hand-off, spreadsheet workaround, and copy-paste task — then deliver a prioritised automation roadmap ranked by ROI before writing a single workflow.
+                </p>
+                <p>
+                    We don't deliver and disappear. Every engagement includes live workshops, recorded walkthroughs, and written runbooks so your team fully owns what we build together.
+                </p>
+                <ul class="svc-points d-flex flex-column gap-2" style="margin-top: 24px; padding-left: 20px;">
+                    <li>Sprint Package — focused 2–4 week project to ship a defined automation system. Fixed scope, fixed price from $4,800</li>
+                    <li>Growth Retainer — dedicated engineer embedded each month, with async support and a monthly strategy session from $2,200/mo</li>
+                    <li>Enterprise Programme — team of engineers handling architecture, migration, and SLA-backed ongoing maintenance</li>
+                    <li>NDA included on all engagements; your data and processes stay confidential</li>
+                    <li>Unlimited revisions until the system performs exactly as agreed</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2" style="margin-top: 24px;">
+                    <span class="tag">Process Audit</span>
+                    <span class="tag">Architecture Design</span>
+                    <span class="tag">Team Enablement</span>
+                    <span class="tag">Monthly Retainer</span>
+                    <span class="tag">Enterprise SLA</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="stickyColumn">
+            <div class="sticky-form-wrapper">
+                <div class="contact-card">
+                    <div class="card-eyebrow">Get in touch</div>
+                    <h3>Talk to our team</h3>
+                    <div class="form-divider" style="margin: 16px 0 24px 0;"></div>
+
+                    <form id="contactForm" novalidate>
+                        <div class="field mb-3">
+                            <input type="text" id="name" placeholder="Jane Smith" required style="width: 100%;" />
+                        </div>
+                        <div class="field mb-3">
+                            <input type="email" id="email" placeholder="jane@company.com" required style="width: 100%;" />
+                        </div>
+                        <div class="field mb-3">
+                            <input type="text" id="company" placeholder="Acme Inc." style="width: 100%;" />
+                        </div>
+                        <div class="field mb-3">
+                            <select id="service" style="width: 100%;">
+                                <option value="" disabled selected>Select a service…</option>
+                                <option>Workflow Automation</option>
+                                <option>FluxEngine AI</option>
+                                <option>Integrations</option>
+                                <option>Consulting</option>
+                                <option>Not sure yet</option>
+                            </select>
+                        </div>
+                        <div class="field mb-3">
+                            <textarea id="message" placeholder="Briefly describe what's slowing your team down…" style="width: 100%; min-height: 100px;"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

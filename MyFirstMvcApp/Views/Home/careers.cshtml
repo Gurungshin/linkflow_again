@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"] = "careers";
+}
+
+<section class="careers-hero" id="careersHero">
+    <div class="careers-hero__bg" id="heroBg"></div>
+    <div class="careers-hero__noise"></div>
+    <div class="container careers-hero__content">
+        <div class="careers-hero__eyebrow" id="heroEyebrow">Careers at LinkFlow</div>
+        <h1 class="careers-hero__title" id="heroTitle">
+            Build what matter most.
+        </h1>
+        <p class="careers-hero__sub" id="heroSub">We're a small team reshaping how work gets done. If you love autonomy, deep craft, and shipping things that move the needle — read on.</p>
+        <div class="careers-hero__stats" id="heroStats">
+            <div>
+                <div class="careers-hero__stat-num">28</div>
+                <div class="careers-hero__stat-label">Team members</div>
+            </div>
+            <div>
+                <div class="careers-hero__stat-num">100%</div>
+                <div class="careers-hero__stat-label">Remote</div>
+            </div>
+            <div>
+                <div class="careers-hero__stat-num">4</div>
+                <div class="careers-hero__stat-label">Open roles</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+        <span class="marquee-item"><span class="marquee-dot"></span>Remote First</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Async Culture</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Competitive Equity</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>No Bureaucracy</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Fast Shipping</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Real Impact</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Learning Budget</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Radical Transparency</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Remote First</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Async Culture</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Competitive Equity</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>No Bureaucracy</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Fast Shipping</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Real Impact</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Learning Budget</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Radical Transparency</span>
+    </div>
+</div>
+
+<section class="team-intro-section">
+    <div class="container">
+        <div class="team-grid-header">
+            <div>
+                <h2 class="team-intro__title">Meet the team work behind our success</h2>
+            </div>
+            <div>
+                <p class="team-intro__text">Our team consists of a group of talents. We solve customer problems with sincerity. All of our team members are very intelligent and skilled, bringing unique perspectives to reshaping how work gets done across our remote-first environment.</p>
+            </div>
+        </div>
+        <div class="imgx">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="LinkFlow Team Working" class="team-hero-img">
+        </div>
+    </div>
+</section>
+
+<section class="positions-section" id="openRoles">
+    <div class="container">
+        <h2 class="positions-section__title">Currently open positions</h2>
+        <div class="positions-grid">
+            <a href="#applyForm" class="clean-job-card" onclick="setRole('Senior Backend Engineer')">
+                <div>
+                    <div class="clean-job-card__header">
+                        <h3 class="clean-job-card__title">Senior Backend Engineer</h3>
+                        <div class="clean-job-card__arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg></div>
+                    </div>
+                    <div class="clean-job-card__meta">Engineering · Full-Time</div>
+                    <p class="clean-job-card__desc">Encompasses building robust data pathways, operating distributed systems with Go/Node.js, and scaling internals safely.</p>
+                </div>
+                <div class="clean-job-card__footer">
+                    <div class="clean-job-card__footer-item">Remote (14 Timezones)</div>
+                    <div class="clean-job-card__footer-item">Competitive Equity</div>
+                </div>
+            </a>
+
+            <a href="#applyForm" class="clean-job-card" onclick="setRole('Product Designer')">
+                <div>
+                    <div class="clean-job-card__header">
+                        <h3 class="clean-job-card__title">Product Designer</h3>
+                        <div class="clean-job-card__arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg></div>
+                    </div>
+                    <div class="clean-job-card__meta">Design · Full-Time</div>
+                    <p class="clean-job-card__desc">Product design encompasses both UI/UX design but it also involves a broader intuitive understanding of the entire product flow.</p>
+                </div>
+                <div class="clean-job-card__footer">
+                    <div class="clean-job-card__footer-item">Remote First</div>
+                    <div class="clean-job-card__footer-item">Figma Expert</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="form-section" id="applyForm">
+    <div class="container">
+        <div class="form-pane">
+            <div class="form-pane__sidebar">
+                <div>
+                    <div class="form-pane__sidebar-title">Ready to<br><span>make your<br>mark?</span></div>
+                    <p class="form-pane__sidebar-sub">We read every application personally. No algorithms, no keyword filters — just real humans who care about your story.</p>
+                </div>
+                <div>
+                    <div class="form-sidebar-badge">We reply within 5 days</div>
+                    <div class="form-sidebar-badge">Your data is kept private</div>
+                </div>
+            </div>
+
+            <div class="form-pane__body">
+                <div id="cfForm">
+                    <div class="form-row-2col">
+                        <div>
+                            <label class="cf-label">First Name *</label>
+                            <input class="cf-input" type="text" id="firstName" placeholder="Jane" />
+                            <div class="cf-error" id="firstNameErr">Required</div>
+                        </div>
+                        <div>
+                            <label class="cf-label">Last Name *</label>
+                            <input class="cf-input" type="text" id="lastName" placeholder="Doe" />
+                            <div class="cf-error" id="lastNameErr">Required</div>
+                        </div>
+                    </div>
+                    <div class="form-row-2col">
+                        <div>
+                            <label class="cf-label">Email *</label>
+                            <input class="cf-input" type="email" id="emailField" placeholder="jane@company.com" />
+                            <div class="cf-error" id="emailErr">Valid email required</div>
+                        </div>
+                        <div>
+                            <label class="cf-label">Phone</label>
+                            <input class="cf-input" type="tel" id="phoneField" placeholder="+1 (555) 000-0000" />
+                        </div>
+                    </div>
+                    <div class="form-divider"><span>Role details</span></div>
+                    <div class="form-row-2col">
+                        <div>
+                            <label class="cf-label">Position *</label>
+                            <select class="cf-input" id="roleField">
+                                <option value="">Select a role…</option>
+                                <option value="Senior Backend Engineer">Senior Backend Engineer</option>
+                                <option value="Product Designer">Product Designer</option>
+                            </select>
+                            <div class="cf-error" id="roleErr">Please select a role</div>
+                        </div>
+                        <div>
+                            <label class="cf-label">Experience *</label>
+                            <select class="cf-input" id="expField">
+                                <option value="">Select…</option>
+                                <option value="4-6">4–6 years</option>
+                                <option value="7-10">7–10 years</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="cf-label">Why LinkFlow? *</label>
+                        <textarea class="cf-input" id="coverNote" rows="4" placeholder="Tell us what excites you..."></textarea>
+                    </div>
+                    <button class="cf-submit" id="submitBtn" onclick="submitApplication()"><span>Submit Application</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

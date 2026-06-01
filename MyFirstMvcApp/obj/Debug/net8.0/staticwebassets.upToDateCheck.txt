@@ -1,8 +1,8 @@
 wwwroot\css\about.css
-wwwroot\css\service.css
 wwwroot\css\style.css
 wwwroot\favicon.ico
 wwwroot\js\navbar.js
+wwwroot\js\rest.js
 wwwroot\js\scr.js
 wwwroot\js\tes.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -62,3 +62,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\service.css

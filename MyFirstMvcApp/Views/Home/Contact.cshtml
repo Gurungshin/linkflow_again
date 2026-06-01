@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="hero-banner position-relative">
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=80" alt="LinkFlow core infrastructure mesh architecture" />
+    <div class="hero-banner-overlay"></div>
+
+    <div class="hero-banner-text w-100 position-absolute bottom-0 start-0">
+        <div class="custom-container" style="padding-top: 48px; padding-bottom: 48px;">
+            <div class="hero-eyebrow mb-2"><span></span> Contact Us </div>
+            <h1 class="text-white m-0" style="font-size: calc(1.425rem + 2.1vw); font-weight: 300; line-height: 1.2;">Get in touch</h1>
+        </div>
+    </div>
+</div>
+
+<section id="values" class="py-5" style="background-color: #faf9f5;">
+    <div class="custom-container">
+
+        <div class="gsap-reveal mb-5" id="valuesHeader">
+            <div class="section-eyebrow mb-3 d-flex align-items-center gap-2">
+                <span class="text-uppercase fw-bold" style="font-size: 0.6875rem; color: #336443; letter-spacing: 0.12em;">Contact</span>
+            </div>
+            <h2 class="fw-normal text-dark mb-0" style="font-size: calc(1.375rem + 1.5vw); line-height: 1.2; letter-spacing: -0.03em;">Get in touch with our team</h2>
+        </div>
+
+        <div class="contact-split-grid">
+
+            <div class="gsap-reveal d-flex flex-column gap-4">
+
+                <div class="contact-info-card">
+                    <h3>Technical Support</h3>
+                    <p>
+                        Facing issues with your deployments? Our engineers are monitoring systems 24/7.
+                    </p>
+                    <a href="mailto:support@linkflow.ai" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1 mt-3" style="color: #336443; font-size: 0.85rem;">
+                        support@linkflow.ai
+                    </a>
+                </div>
+
+                <div class="contact-info-card">
+                    <h3>Enterprise Sales</h3>
+                    <p>
+                        Looking to deploy isolated zero-trust networks? Let's talk scale.
+                    </p>
+                    <a href="mailto:sales@linkflow.ai" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1 mt-3" style="color: #336443; font-size: 0.85rem;">
+                        sales@linkflow.ai
+                    </a>
+                </div>
+
+                <div class="contact-info-card">
+                    <h3>Global HQ</h3>
+                    <p>
+                        100 Montgomery St, Suite 1800<br>
+                        San Francisco, CA 94104, United States
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="gsap-reveal">
+                <div class="form-wrapper-card">
+                    <h3>Send us a message</h3>
+
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+
+                        <div class="form-row-split">
+                            <div class="form-group-field">
+                                <label>Full Name *</label>
+                                <input type="text" id="userName" placeholder="Jane Doe" required />
+                            </div>
+                            <div class="form-group-field">
+                                <label>Email Address *</label>
+                                <input type="email" id="userEmail" placeholder="jane@company.com" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group-field" style="margin-top: 8px;">
+                            <label>Subject</label>
+                            <input type="text" id="formSubject" placeholder="Enterprise Partnership Inquiry" />
+                        </div>
+
+                        <div class="form-group-field" style="margin-top: 8px; margin-bottom: 32px;">
+                            <label>Your Message *</label>
+                            <textarea id="userMessage" rows="5" placeholder="Tell us how we can help your operations..." required style="resize: vertical;"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn-native">
+                            Send Message
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="map-wrapper" id="officeMap">
+    <iframe src="https://maps.google.com/maps?q=100%20Montgomery%20St,%20San%20Francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>

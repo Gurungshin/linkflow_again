@@ -32,3 +32,4 @@ C:\Users\DELL\OneDrive\Desktop\Link_Flow\MyFirstMvcApp\MyFirstMvcApp\obj\Debug\n
 C:\Users\DELL\OneDrive\Desktop\Link_Flow\MyFirstMvcApp\MyFirstMvcApp\obj\Debug\net8.0\MyFirstMvcApp.pdb
 C:\Users\DELL\OneDrive\Desktop\Link_Flow\MyFirstMvcApp\MyFirstMvcApp\obj\Debug\net8.0\MyFirstMvcApp.genruntimeconfig.cache
 C:\Users\DELL\OneDrive\Desktop\Link_Flow\MyFirstMvcApp\MyFirstMvcApp\obj\Debug\net8.0\ref\MyFirstMvcApp.dll
+C:\Users\DELL\OneDrive\Desktop\Link_Flow\MyFirstMvcApp\MyFirstMvcApp\obj\Debug\net8.0\MyFirstMvcApp.sourcelink.json
