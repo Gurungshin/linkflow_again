@@ -1,0 +1,257 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="hero">
+    <div class="bg-layer" id="heroBg">
+        <video id="bgVideo"
+               src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_131941_d136af49-e243-493a-be14-6ff3f24e09e6.mp4"
+               muted playsinline preload="auto" crossorigin="anonymous"
+               style="display:block"></video>
+        <canvas id="bgCanvas" style="display:none"></canvas>
+    </div>
+
+    <div class="hero-copy" id="heroText">
+        <h1>Close the rift <span class="accent">linking<br>signals and action</span></h1>
+        <p>Shape scattered signals into meaningful outcomes via AI-driven workflows.</p>
+    </div>
+
+    <div class="bottom-left" id="heroLeft">
+        <div class="flux-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L13.5 8.5L19 10L13.5 11.5L12 17L10.5 11.5L5 10L10.5 8.5L12 3Z" /><path d="M5 3L5.5 4.5L7 5L5.5 5.5L5 7L4.5 5.5L3 5L4.5 4.5L5 3Z" /><path d="M19 17L19.5 18.5L21 19L19.5 19.5L19 21L18.5 19.5L17 19L18.5 18.5L19 17Z" /></svg>
+            <span>FluxEngine<sup>TM</sup></span>
+        </div>
+        <p>LinkFlow smoothly unites your company systems, streamlining data paths between services without having to write custom scripts.</p>
+        <div class="bottom-left-btns">
+            <button class="btn-live">Try it Live</button>
+            <button class="btn-know">Know More.</button>
+        </div>
+    </div>
+
+    <div class="bottom-right" id="heroRight">
+        <button class="play-btn" aria-label="Watch how we build">
+            <svg viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5,3 19,12 5,21" /></svg>
+        </button>
+        <span>How we build?</span>
+        <span class="video-time">1:35</span>
+    </div>
+</section>
+
+<section id="mission">
+    <div class="inner">
+        <div class="mission-left gsap-reveal" id="missionLeft">
+            <div class="section-eyebrow"><span></span> Our Purpose</div>
+            <h2 class="section-heading">We exist to <em>end the chaos</em> of disconnected data</h2>
+            <p class="section-sub">Every enterprise runs on dozens of tools that never quite speak to each other. Sales data lives in one silo, support tickets in another, and your team spends more time copy-pasting than actually thinking. LinkFlow closes that gap permanently.</p>
+        </div>
+        <div class="mission-right" id="missionRight">
+            <div class="mission-point gsap-reveal">
+                <div class="mission-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg></div>
+                <div><h3>Real-time signal ingestion</h3><p>Every event — a form submission, a Stripe charge, a Slack message — is ingested the moment it happens and routed through your custom logic without latency.</p></div>
+            </div>
+            <div class="mission-point gsap-reveal">
+                <div class="mission-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" /></svg></div>
+                <div><h3>AI-native decision layer</h3><p>FluxEngine sits at the centre, using large language models to interpret context, classify intent, and decide the right action — no hard-coded rules required.</p></div>
+            </div>
+            <div class="mission-point gsap-reveal">
+                <div class="mission-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></div>
+                <div><h3>Enterprise-grade security</h3><p>SOC 2 Type II certified, end-to-end encryption at rest and in transit, role-based access control, and full audit logging on every workflow run.</p></div>
+            </div>
+            <div class="mission-point gsap-reveal">
+                <div class="mission-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10" /><line x1="18" y1="20" x2="18" y2="4" /><line x1="6" y1="20" x2="6" y2="16" /></svg></div>
+                <div><h3>Observability built in</h3><p>Every workflow step emits structured logs and traces. Debug failures, measure throughput, and set SLA alerts from a single dashboard.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="how">
+    <div class="inner">
+        <div class="gsap-reveal" id="howHeader">
+            <div class="section-eyebrow"><span></span> The Process</div>
+            <h2 class="section-heading">From raw signal <em>to resolved action</em> in four steps</h2>
+            <p class="section-sub">LinkFlow abstracts the hard parts — auth, retries, schema mapping, error handling — so you can focus purely on business logic.</p>
+        </div>
+        <div class="steps-grid" id="howGrid">
+            <div class="step-card gsap-reveal"><div class="step-num">01</div><h3>Connect your sources</h3><p>Authenticate your tools in one click. LinkFlow speaks OAuth, API keys, webhooks, and database connections natively — no middleware needed.</p><span class="step-tag">Ingestion</span></div>
+            <div class="step-card gsap-reveal"><div class="step-num">02</div><h3>Define your triggers</h3><p>Choose the events that matter: a new deal stage, a support ticket above severity 3, a shipment delay. Visual or YAML — your choice.</p><span class="step-tag">Logic</span></div>
+            <div class="step-card gsap-reveal"><div class="step-num">03</div><h3>Let FluxEngine decide</h3><p>The AI layer reads context from across your connected tools, enriches each event, and determines the optimal next action automatically.</p><span class="step-tag">AI</span></div>
+            <div class="step-card gsap-reveal"><div class="step-num">04</div><h3>Actions fire, you review</h3><p>Emails send, tickets update, dashboards refresh, Slack pings land. Every run is logged with a full trace so you can audit or replay any moment.</p><span class="step-tag">Output</span></div>
+        </div>
+        <div class="integrations gsap-reveal" id="howIntegrations">
+            <p>Connects natively with</p>
+            <div class="logos-row">
+                <div class="logo-pill"><span class="dot" style="background:#4285F4"></span> Google Workspace</div>
+                <div class="logo-pill"><span class="dot" style="background:#E01E5A"></span> Slack</div>
+                <div class="logo-pill"><span class="dot" style="background:#00A4EF"></span> Salesforce</div>
+                <div class="logo-pill"><span class="dot" style="background:#635BFF"></span> Stripe</div>
+                <div class="logo-pill"><span class="dot" style="background:#0052CC"></span> Jira</div>
+                <div class="logo-pill"><span class="dot" style="background:#FF7A59"></span> HubSpot</div>
+                <div class="logo-pill"><span class="dot" style="background:#336443"></span> + 330 more</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing">
+    <div class="inner">
+        <div class="header gsap-reveal" id="pricingHeader">
+            <div>
+                <div class="section-eyebrow"><span></span> Tariffs</div>
+                <h2 class="section-heading">Simple, honest <em>pricing</em></h2>
+            </div>
+            <div class="billing-toggle">
+                <span>Monthly</span>
+                <div class="toggle-track annual" id="billingToggle"><div class="toggle-thumb"></div></div>
+                <span>Annual</span>
+                <span class="save-badge">Save 20%</span>
+            </div>
+        </div>
+        <div class="plans-grid" id="pricingGrid">
+            <div class="plan-card gsap-reveal">
+                <div class="plan-name">Starter</div>
+                <div class="plan-price"><span class="currency">$</span><span class="amount" data-monthly="29" data-annual="23">23</span><span class="period">/ mo</span></div>
+                <p class="plan-desc">Perfect for solo founders and small teams getting their first workflows live.</p>
+                <div class="plan-divider"></div>
+                <ul class="plan-features">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Up to 5 active workflows</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> 10,000 events / month</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> 50 integrations</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> 7-day log retention</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Email support</li>
+                </ul>
+                <button class="plan-btn outline">Get started free</button>
+            </div>
+            <div class="plan-card featured gsap-reveal">
+                <span class="featured-label">Most popular</span>
+                <div class="plan-name">Growth</div>
+                <div class="plan-price"><span class="currency">$</span><span class="amount" data-monthly="99" data-annual="79">79</span><span class="period">/ mo</span></div>
+                <p class="plan-desc">For scaling teams that need reliable automation at production volume.</p>
+                <div class="plan-divider"></div>
+                <ul class="plan-features">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Unlimited workflows</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> 500,000 events / month</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> All 340+ integrations</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> FluxEngine AI included</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> 90-day log retention</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Priority Slack support</li>
+                </ul>
+                <button class="plan-btn solid">Start 14-day trial</button>
+            </div>
+            <div class="plan-card gsap-reveal">
+                <div class="plan-name">Enterprise</div>
+                <div class="plan-price"><span class="amount" style="font-size:2rem; letter-spacing:-0.02em; color:#1f2a1d;">Custom</span></div>
+                <p class="plan-desc">White-glove onboarding, dedicated infrastructure, and SLAs for orgs that run mission-critical pipelines.</p>
+                <div class="plan-divider"></div>
+                <ul class="plan-features">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Unlimited everything</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Private cloud deployment</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> SSO / SAML</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> 99.99% uptime SLA</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Dedicated success manager</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg> Custom contract & invoicing</li>
+                </ul>
+                <button class="plan-btn outline">Talk to sales</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <div class="inner">
+        <div class="gsap-reveal" id="testimonialsHeader">
+            <div class="section-eyebrow"><span></span> What teams say</div>
+            <div class="testimonial-header-row">
+                <h2 class="section-heading">Trusted by teams <em>moving fast</em></h2>
+                <div class="carousel-nav-btns">
+                    <button class="carousel-prev" aria-label="Previous Testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6" /></svg>
+                    </button>
+                    <button class="carousel-next" aria-label="Next Testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials-carousel-container gsap-reveal" id="testimonialsCarousel">
+            <div class="testimonials-grid carousel-track">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                    </div>
+                    <blockquote>We replaced three separate Zapier accounts and a custom Python script with one LinkFlow workspace. The FluxEngine layer is genuinely spooky-good at figuring out what we meant, not just what we typed.</blockquote>
+                    <div class="testimonial-author">
+                        <div class="avatar" style="background:#edf4ee; color:#336443;">PR</div>
+                        <div><div class="name">Priya Ramachandran</div><div class="role">Head of Revenue Ops, Luma Health</div></div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                    </div>
+                    <blockquote>Setup took 18 minutes. Within the hour, our CRM was auto-tagging churned accounts, Slack was alerting the right CSM, and a follow-up sequence had already gone out. That used to take a week of engineering time.</blockquote>
+                    <div class="testimonial-author">
+                        <div class="avatar" style="background:#f0ece8; color:#5c4a36;">MO</div>
+                        <div><div class="name">Marcus O'Brien</div><div class="role">CTO, Fieldspark</div></div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                    </div>
+                    <blockquote>I was sceptical about the AI decision layer — convinced it would hallucinate half our workflows into chaos. Six months later, it's caught edge cases our engineers missed and suggested optimisations we hadn't considered.</blockquote>
+                    <div class="testimonial-author">
+                        <div class="avatar" style="background:#eee8f5; color:#5a3d80;">SK</div>
+                        <div><div class="name">Sunita Kaur</div><div class="role">VP Engineering, Capsule</div></div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                    </div>
+                    <blockquote>I was sceptical about the AI decision layer — convinced it would hallucinate half our workflows into chaos. Six months later, it's caught edge cases our engineers missed and suggested optimisations we hadn't considered.</blockquote>
+                    <div class="testimonial-author">
+                        <div class="avatar" style="background:#eee8f5; color:#5a3d80;">SK</div>
+                        <div><div class="name">Sunita Kaur</div><div class="role">VP Engineering, Capsule</div></div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                    </div>
+                    <blockquote>I was sceptical about the AI decision layer — convinced it would hallucinate half our workflows into chaos. Six months later, it's caught edge cases our engineers missed and suggested optimisations we hadn't considered.</blockquote>
+                    <div class="testimonial-author">
+                        <div class="avatar" style="background:#eee8f5; color:#5a3d80;">SK</div>
+                        <div><div class="name">Sunita Kaur</div><div class="role">VP Engineering, Capsule</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

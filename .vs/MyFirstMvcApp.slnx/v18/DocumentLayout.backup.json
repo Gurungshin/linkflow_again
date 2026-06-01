@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\DELL\\OneDrive\\Desktop\\Link_Flow\\MyFirstMvcApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\link_flow\\myfirstmvcapp\\myfirstmvcapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\link_flow\\myfirstmvcapp\\myfirstmvcapp\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\link_flow\\myfirstmvcapp\\myfirstmvcapp\\views\\shared\\_navbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\shared\\_navbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_footer.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\Link_Flow\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Shared\\_footer.cshtml",
+              "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Shared\\_footer.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\Link_Flow\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Shared\\_footer.cshtml",
+              "RelativeToolTip": "MyFirstMvcApp\\Views\\Shared\\_footer.cshtml",
+              "ViewState": "AgIAABwAAAAAAAAAAAAIwDEAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-30T08:23:19.461Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_navbar.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\Link_Flow\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Shared\\_navbar.cshtml",
+              "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Shared\\_navbar.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\Link_Flow\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Shared\\_navbar.cshtml",
+              "RelativeToolTip": "MyFirstMvcApp\\Views\\Shared\\_navbar.cshtml",
+              "ViewState": "AgIAABQAAAAAAAAAAAAIwCUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-30T08:21:28.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\Link_Flow\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\Link_Flow\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MyFirstMvcApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-30T05:26:37.7Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
