@@ -387,3 +387,220 @@ html { scroll-behavior: smooth; overflow-x: hidden; }
 }
 
 
+/*admin login page css*/
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    /* Light green mesh gradient using brand-aligned tones */
+    background: radial-gradient(circle at 80% 20%, rgba(51, 100, 67, 0.12) 0%, transparent 50%), radial-gradient(circle at 10% 80%, rgba(237, 244, 238, 0.8) 0%, transparent 60%), #f4f8f5;
+    font-family: 'Inter', 'Neue Haas Grotesk Text Pro', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+    /* Crisp grid pattern adjusted for a light background */
+    .login-container::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(rgba(51, 100, 67, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(51, 100, 67, 0.03) 1px, transparent 1px);
+        background-size: 24px 24px;
+        pointer-events: none;
+    }
+
+.login-card {
+    background: #ffffff;
+    /* Clean, subtle border that looks sharp against light green */
+    border: 1px solid rgba(51, 100, 67, 0.08);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 440px;
+    /* Softer drop-shadow tailored for light interfaces */
+    box-shadow: 0 12px 32px rgba(31, 42, 29, 0.05), 0 4px 8px rgba(0, 0, 0, 0.01);
+    position: relative;
+    z-index: 1;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+    .login-header .logo {
+        font-family: 'Neue Haas Grotesk Display Pro 55 Roman', sans-serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #111;
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+    }
+
+    .login-header h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1f2a1d;
+        margin: 0 0 8px 0;
+        letter-spacing: -0.01em;
+    }
+
+    .login-header p {
+        color: #666;
+        font-size: 0.925rem;
+        margin: 0;
+    }
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+.input-wrapper {
+    position: relative;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: #111;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: #336443; /* Using accent brand colors found in your code */
+        box-shadow: 0 0 0 3px rgba(51, 100, 67, 0.1);
+    }
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    font-size: 0.85rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    cursor: pointer;
+}
+
+    .remember-me input {
+        accent-color: #336443;
+        cursor: pointer;
+    }
+
+.forgot-link {
+    color: #336443;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+    .forgot-link:hover {
+        text-decoration: underline;
+    }
+
+/* Standardizing buttons with your main CSS properties */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: #1f2a1d; /* Deep custom dark color from enterprise pricing button */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s ease;
+}
+
+    .btn-submit:hover {
+        background: #336443; /* Switches gracefully to your brand green */
+    }
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: #aaa;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+    .divider::before, .divider::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #eee;
+    }
+
+    .divider:not(:empty)::before {
+        margin-right: .5em;
+    }
+
+    .divider:not(:empty)::after {
+        margin-left: .5em;
+    }
+
+.btn-oauth {
+    width: 100%;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.2s ease;
+}
+
+    .btn-oauth:hover {
+        background: #f9f9f9;
+    }
+
+.footer-note {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+    .footer-note a {
+        color: #336443;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }

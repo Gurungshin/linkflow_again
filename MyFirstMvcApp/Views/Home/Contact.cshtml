@@ -62,27 +62,27 @@
                 <div class="form-wrapper-card">
                     <h3>Send us a message</h3>
 
-                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <form method="post">
 
                         <div class="form-row-split">
                             <div class="form-group-field">
                                 <label>Full Name *</label>
-                                <input type="text" id="userName" placeholder="Jane Doe" required />
+                                <input type="text" id="userName" name="Name" placeholder="Jane Doe" required />
                             </div>
                             <div class="form-group-field">
                                 <label>Email Address *</label>
-                                <input type="email" id="userEmail" placeholder="jane@company.com" required />
+                                <input type="email" id="userEmail" name="Email" placeholder="jane@company.com" required />
                             </div>
                         </div>
 
                         <div class="form-group-field" style="margin-top: 8px;">
                             <label>Subject</label>
-                            <input type="text" id="formSubject" placeholder="Enterprise Partnership Inquiry" />
+                            <input type="text" id="formSubject" name="Subject" placeholder="Enterprise Partnership Inquiry" />
                         </div>
 
                         <div class="form-group-field" style="margin-top: 8px; margin-bottom: 32px;">
                             <label>Your Message *</label>
-                            <textarea id="userMessage" rows="5" placeholder="Tell us how we can help your operations..." required style="resize: vertical;"></textarea>
+                            <textarea id="userMessage" rows="5" name="Message" placeholder="Tell us how we can help your operations..." required style="resize: vertical;"></textarea>
                         </div>
 
                         <button type="submit" class="submit-btn-native">

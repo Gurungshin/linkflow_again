@@ -1,16 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 using MyFirstMvcApp.Models;
 using System.Diagnostics;
+using Microsoft.Data.SqlClient;
+
 
 namespace MyFirstMvcApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
@@ -53,8 +57,73 @@ namespace MyFirstMvcApp.Controllers
             return View();
         }
 
+        public IActionResult Admin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Admin(Admin obj)
+        {
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                string query = @"SELECT COUNT(*)
+                         FROM Admin
+                         WHERE UserName=@UserName
+                         AND Password=@Password";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@UserName", obj.UserName);
+                cmd.Parameters.AddWithValue("@Password", obj.Password);
+
+                con.Open();
+
+                int count = (int)cmd.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+            }
+
+            ViewBag.Error = "Username or Password is incorrect";
+            return View();
+        }
+
+
         public IActionResult Contact()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(Contact obj)
+        {
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                string query = @"INSERT INTO Contact
+                        (Name, Email, Subject, Message)
+                        VALUES
+                        (@Name, @Email, @Subject, @Message)";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Name", obj.Name);
+                cmd.Parameters.AddWithValue("@Email", obj.Email);
+                cmd.Parameters.AddWithValue("@Subject", obj.Subject);
+                cmd.Parameters.AddWithValue("@Message", obj.Message);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            ViewBag.Message = "Message Sent Successfully";
+
             return View();
         }
 
