@@ -12,89 +12,101 @@ build_property.EntryPointFilePath =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyFirstMvcApp
 build_property.RootNamespace = MyFirstMvcApp
-build_property.ProjectDir = C:\Users\DELL\OneDrive\Desktop\Link_Flow\MyFirstMvcApp\MyFirstMvcApp\
+build_property.ProjectDir = C:\Users\DELL\OneDrive\Desktop\MyFirstMvcApp\MyFirstMvcApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\DELL\OneDrive\Desktop\Link_Flow\MyFirstMvcApp\MyFirstMvcApp
+build_property.MSBuildProjectDirectory = C:\Users\DELL\OneDrive\Desktop\MyFirstMvcApp\MyFirstMvcApp
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/Index.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/AddFaQ.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkRmFRLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/FaQdetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRmFRZGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Home/about.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Home/about.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Home/Admin.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Home/Admin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Home/Blog.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Home/Blog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCbG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Home/BlogDetail.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Home/BlogDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCbG9nRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Home/careers.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Home/careers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjYXJlZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Home/Contact.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Home/gallery.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Home/gallery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxnYWxsZXJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Home/Index.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Home/Privacy.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Home/serviceDetail.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Home/serviceDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzZXJ2aWNlRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/Error.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/_adminLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pbkxheW91dC5jc2h0bWw=
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/_footer.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/_footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9mb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/_navbar.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/_navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/_ViewImports.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/_ViewStart.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/OneDrive/Desktop/Link_Flow/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/_Layout.cshtml]
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-7k3u1t0ff4

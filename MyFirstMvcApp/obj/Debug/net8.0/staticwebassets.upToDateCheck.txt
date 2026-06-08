@@ -1,3 +1,6 @@
+wwwroot\admin_css\admin.css
+wwwroot\admin_js\admin.js
+wwwroot\admin_js\formadmin.js
 wwwroot\css\about.css
 wwwroot\css\service.css
 wwwroot\css\style.css

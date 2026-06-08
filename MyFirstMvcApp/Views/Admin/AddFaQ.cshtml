@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="header-row">
+        <div class="title-area">
+            <h1> Add FaQ </h1>
+            <div class="context-line">
+                <span> Dashboard &mdash; <strong>Add FaQ</strong></span>
+            </div>
+        </div>
+        <div class="header-meta">
+            <span class="active-session-badge">● Active Session</span>
+        </div>
+    </div>
+
+    <form method="post" class="resource-form-container">
+
+        <div class="form-group full-width">
+            <label for="resourceTitle"> Add Question </label>
+            <input type="text" name="Question" placeholder="Question ......" required />
+        </div>
+
+        <div class="form-group full-width">
+            <label for="editor"> Add Answer </label>
+            <textarea id="editor" name="Answer" placeholder="Answer......."></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">Save Entries</button>
+        </div>
+
+    </form>
+</main>
