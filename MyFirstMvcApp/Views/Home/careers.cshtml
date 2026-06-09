@@ -65,43 +65,6 @@
     </div>
 </section>
 
-<section class="positions-section" id="openRoles">
-    <div class="container">
-        <h2 class="positions-section__title">Currently open positions</h2>
-        <div class="positions-grid">
-            <a href="#applyForm" class="clean-job-card" onclick="setRole('Senior Backend Engineer')">
-                <div>
-                    <div class="clean-job-card__header">
-                        <h3 class="clean-job-card__title">Senior Backend Engineer</h3>
-                        <div class="clean-job-card__arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg></div>
-                    </div>
-                    <div class="clean-job-card__meta">Engineering · Full-Time</div>
-                    <p class="clean-job-card__desc">Encompasses building robust data pathways, operating distributed systems with Go/Node.js, and scaling internals safely.</p>
-                </div>
-                <div class="clean-job-card__footer">
-                    <div class="clean-job-card__footer-item">Remote (14 Timezones)</div>
-                    <div class="clean-job-card__footer-item">Competitive Equity</div>
-                </div>
-            </a>
-
-            <a href="#applyForm" class="clean-job-card" onclick="setRole('Product Designer')">
-                <div>
-                    <div class="clean-job-card__header">
-                        <h3 class="clean-job-card__title">Product Designer</h3>
-                        <div class="clean-job-card__arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg></div>
-                    </div>
-                    <div class="clean-job-card__meta">Design · Full-Time</div>
-                    <p class="clean-job-card__desc">Product design encompasses both UI/UX design but it also involves a broader intuitive understanding of the entire product flow.</p>
-                </div>
-                <div class="clean-job-card__footer">
-                    <div class="clean-job-card__footer-item">Remote First</div>
-                    <div class="clean-job-card__footer-item">Figma Expert</div>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
-
 <section class="form-section" id="applyForm">
     <div class="container">
         <div class="form-pane">
@@ -116,44 +79,43 @@
                 </div>
             </div>
 
+
             <div class="form-pane__body">
                 <div id="cfForm">
                     <div class="form-row-2col">
                         <div>
-                            <label class="cf-label">First Name *</label>
+                <label class="cf-label" for="firstName">First Name *</label>
                             <input class="cf-input" type="text" id="firstName" placeholder="Jane" />
-                            <div class="cf-error" id="firstNameErr">Required</div>
                         </div>
                         <div>
-                            <label class="cf-label">Last Name *</label>
-                            <input class="cf-input" type="text" id="lastName" placeholder="Doe" />
-                            <div class="cf-error" id="lastNameErr">Required</div>
+                <label class="cf-label" for="emailField">Email *</label>
+                <input class="cf-input" type="email" id="emailField" placeholder="jane@company.com" />
                         </div>
                     </div>
+
                     <div class="form-row-2col">
                         <div>
-                            <label class="cf-label">Email *</label>
-                            <input class="cf-input" type="email" id="emailField" placeholder="jane@company.com" />
-                            <div class="cf-error" id="emailErr">Valid email required</div>
+                <label class="cf-label" for="phoneField">Phone *</label>
+                <input class="cf-input" type="text" id="phoneField" placeholder="+1 (555) 000-0000" />
                         </div>
                         <div>
-                            <label class="cf-label">Phone</label>
-                            <input class="cf-input" type="tel" id="phoneField" placeholder="+1 (555) 000-0000" />
+                <label class="cf-label" for="cvUpload">CV Upload</label>
+                <input class="cf-input" type="file" id="cvUpload" />
                         </div>
                     </div>
+
                     <div class="form-divider"><span>Role details</span></div>
                     <div class="form-row-2col">
                         <div>
-                            <label class="cf-label">Position *</label>
+                <label class="cf-label" for="roleField">Position *</label>
                             <select class="cf-input" id="roleField">
                                 <option value="">Select a role…</option>
                                 <option value="Senior Backend Engineer">Senior Backend Engineer</option>
                                 <option value="Product Designer">Product Designer</option>
                             </select>
-                            <div class="cf-error" id="roleErr">Please select a role</div>
                         </div>
                         <div>
-                            <label class="cf-label">Experience *</label>
+                <label class="cf-label" for="expField">Experience *</label>
                             <select class="cf-input" id="expField">
                                 <option value="">Select…</option>
                                 <option value="4-6">4–6 years</option>
@@ -161,13 +123,18 @@
                             </select>
                         </div>
                     </div>
+
                     <div class="mb-4">
-                        <label class="cf-label">Why LinkFlow? *</label>
+            <label class="cf-label" for="coverNote">Why LinkFlow? *</label>
                         <textarea class="cf-input" id="coverNote" rows="4" placeholder="Tell us what excites you..."></textarea>
                     </div>
-                    <button class="cf-submit" id="submitBtn" onclick="submitApplication()"><span>Submit Application</span></button>
+
+                    <button class="cf-submit" id="submitBtn"><span>Submit Application</span></button>
                 </div>
             </div>
+         
         </div>
     </div>
 </section>
+
+
