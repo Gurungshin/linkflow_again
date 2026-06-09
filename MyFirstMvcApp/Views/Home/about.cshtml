@@ -1,4 +1,7 @@
-﻿@{
+﻿@model List<FAQ>
+
+
+@{
     ViewData["Title"] = "about ";
 }
 
@@ -286,21 +289,51 @@
             <h2 class="section-heading" style="text-align:center; margin:0 auto;">Everything you might <em>want to know</em></h2>
         </div>
         <div class="faq-list" id="faqList">
-            <div class="faq-item open">
+            @* <div class="faq-item open">
                 <button class="faq-question">
                     What exactly does LinkFlow do?
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+                     </svg>
                 </button>
-                <div class="faq-answer"><div><p>LinkFlow connects your business tools — CRMs, payment processors, messaging platforms, databases — and automates the workflows between them using our AI decision layer, FluxEngine. Think of it as the intelligent connective tissue between your stack, acting on signals in real time without you having to write a single line of code.</p></div></div>
-            </div>
+                <div class="faq-answer"><div><p>LinkFlow connects your business tools — CRMs, payment processors, messaging platforms, databases — and automates the workflows between them using our AI decision
+                    layer, FluxEngine. Think of it as the intelligent connective tissue between your stack, acting on signals in real time without you having to write a single line of code.</p>
+                    </div>
+               </div>
+            </div> *@
+
+          @*   @foreach (var item in Model)
             <div class="faq-item">
                 <button class="faq-question">
-                    How is LinkFlow different from Zapier or Make?
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+                    @item.Question
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
                 </button>
-                <div class="faq-answer"><div><p>Traditional automation tools are trigger-then-action. LinkFlow's FluxEngine layer reads intent — not just events. It understands context, handles branching logic intelligently, scales to billions of events per month, and gives your team full observability into every decision it makes. We're built for teams where automation is mission-critical infrastructure, not a weekend project.</p></div></div>
+                <div class="faq-answer"><div>@item.Answer</div></div>
             </div>
-            <div class="faq-item">
+            } *@
+
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="faq-item @(i == 0 ? "open" : "")">
+                    <button class="faq-question">
+                        @Model[i].Question
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                    </button>
+
+                    <div class="faq-answer">
+                        <div>
+                            @Html.Raw(Model[i].Answer)
+                        </div>
+                    </div>
+                </div>
+            }
+
+@*             <div class="faq-item">
                 <button class="faq-question">
                     Is my data secure on LinkFlow?
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
@@ -328,6 +361,8 @@
                 </button>
                 <div class="faq-answer"><div><p>Our headquarters are in London, with a growing team in New York. The majority of our 48-person team works remotely across 12 time zones. We run quarterly in-person sprints so the whole team connects face-to-face, and we take a No-Meeting Fridays policy seriously everywhere.</p></div></div>
             </div>
+        *@
+        
         </div>
     </div>
 </section>

@@ -2,6 +2,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@model List<MyFirstMvcApp.Models.Contact>
+
 <main>
     <div class="header-row">
         <div class="title-area">
@@ -35,22 +37,23 @@
                     <th style="width:20%">Name</th>
                     <th style="width:15%">Email Address</th>
                     <th style="width:15%">Subject</th>
-                    <th style="width:35%">Message</th>
-                    <th style="width:15%">Date & Time</th>
+                    <th style="width:30%">Message</th>
+                    <th style="width:20%">Date & Time</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
-                <tr class="table-row">
-                    <td data-label="Name"><span class="td-name"> Bijay Bahadur Gurung </span> </td>
-                    <td data-label="Email Address">bijya.gurung@airiq.in</td>
-                    <td data-label="Subject" class="td-meta"> Partnership </td>
-                    <td data-label="Message" > How much money I need spend to become your partner</td>
-                    <td data-label="Date & Time" > 18 March 2026 8:10 pm </td>
-                </tr>
-              
 
-                
-            </tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-row">
+                        <td data-label="Name"><span class="td-name"> @item.Name </span> </td>
+                        <td data-label="Email Address"> @item.Email </td>
+                        <td data-label="Subject" class="td-meta"> @item.Subject </td>
+                        <td data-label="Message"> @item.Message </td>
+                        <td data-label="Date & Time"> @item.TimeSpan </td>
+                    </tr>
+                }
+           </tbody>
         </table>
 
         <div id="noResults" class="no-results">No resources match your search.</div>

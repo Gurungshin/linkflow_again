@@ -29,7 +29,30 @@ namespace MyFirstMvcApp.Controllers
 
         public IActionResult About()
         {
-            return View();
+
+            List<FAQ> faqList = new List<FAQ>();
+
+            SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM FAQ ORDER BY ID DESC", con);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                FAQ faq = new FAQ();
+
+                faq.ID = Convert.ToInt32(dr["ID"]);
+                faq.Question = dr["Question"].ToString();
+                faq.Answer = dr["Answer"].ToString();
+                faq.TimeSpan = Convert.ToDateTime(dr["TimeSpan"]);
+
+                faqList.Add(faq);
+            }
+
+            con.Close();
+
+            return View(faqList);
         }
 
         public IActionResult serviceDetail()
@@ -42,7 +65,18 @@ namespace MyFirstMvcApp.Controllers
             return View();
         }
 
-        public IActionResult careers()
+        //public IActionResult careers()
+        //{
+        //    return View();
+        //}
+
+        public IActionResult career()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult career()
         {
             return View();
         }
