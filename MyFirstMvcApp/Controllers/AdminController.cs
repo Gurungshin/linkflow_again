@@ -42,7 +42,15 @@ namespace MyFirstMvcApp.Controllers
             return View(contactList);
         }
 
+      public IActionResult jobcard()
+        {
+            return View();
+        }
 
+        public IActionResult JobDetail()
+        {
+            return View();
+        }
 
         public IActionResult AddFaQ(int? id)
         {
@@ -180,6 +188,9 @@ namespace MyFirstMvcApp.Controllers
 
             return RedirectToAction("FaQdetails");
         }
+
+
+      
 
     }
 }

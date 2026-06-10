@@ -76,7 +76,7 @@ namespace MyFirstMvcApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult career()
+        public IActionResult career(Contact obj)
         {
             return View();
         }
