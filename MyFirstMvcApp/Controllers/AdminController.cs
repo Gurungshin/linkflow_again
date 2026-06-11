@@ -81,8 +81,6 @@ namespace MyFirstMvcApp.Controllers
             return View(obj);
         }
 
- 
-
         [HttpPost]
         public IActionResult AddFaQ(FAQ obj)
         {

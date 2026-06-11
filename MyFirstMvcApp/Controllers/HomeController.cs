@@ -8,12 +8,10 @@ namespace MyFirstMvcApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
 
         public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
-            _logger = logger;
             _configuration = configuration;
         }
 
@@ -65,23 +63,13 @@ namespace MyFirstMvcApp.Controllers
             return View();
         }
 
-        //public IActionResult careers()
-        //{
-        //    return View();
-        //}
-
         public IActionResult career()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult career(Contact obj)
-        {
-            return View();
-        }
-
-        public IActionResult Blog()
+        public IActionResult career(JobApplicant obj)
         {
             return View();
         }
@@ -91,10 +79,9 @@ namespace MyFirstMvcApp.Controllers
             return View();
         }
 
-        public IActionResult Admin()
-        {
-            return View();
-        }
+        public IActionResult Blog() => View();
+        public IActionResult BlogDetail() => View();
+        public IActionResult Admin() => View();
 
         [HttpPost]
         public IActionResult Admin(Admin obj)
