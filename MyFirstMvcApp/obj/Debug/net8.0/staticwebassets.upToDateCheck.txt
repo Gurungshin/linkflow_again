@@ -4,6 +4,7 @@ wwwroot\admin_js\formadmin.js
 wwwroot\css\about.css
 wwwroot\css\service.css
 wwwroot\css\style.css
+wwwroot\Cv\cebbf203-f6b6-4441-b78d-e0b45e16c9d4_Bihar_Birth_Certificate_Guide.pdf
 wwwroot\favicon.ico
 wwwroot\js\navbar.js
 wwwroot\js\rest.js

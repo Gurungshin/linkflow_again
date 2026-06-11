@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\views\\admin\\jobdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\admin\\jobdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\views\\admin\\jobcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\admin\\jobcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\views\\home\\career.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\home\\career.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\models\\jobapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\models\\jobapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,66 +38,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "JobDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Admin\\JobDetail.cshtml",
-              "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Admin\\JobDetail.cshtml",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Admin\\JobDetail.cshtml",
-              "RelativeToolTip": "MyFirstMvcApp\\Views\\Admin\\JobDetail.cshtml",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAmwCQAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-10T07:23:25.334Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Jobcard.cshtml",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Admin\\Jobcard.cshtml",
-              "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Admin\\Jobcard.cshtml",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Admin\\Jobcard.cshtml",
-              "RelativeToolTip": "MyFirstMvcApp\\Views\\Admin\\Jobcard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-10T06:11:00.312Z",
+              "Title": "JobApplications.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Models\\JobApplications.cs",
+              "RelativeDocumentMoniker": "MyFirstMvcApp\\Models\\JobApplications.cs",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Models\\JobApplications.cs",
+              "RelativeToolTip": "MyFirstMvcApp\\Models\\JobApplications.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwAcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-11T11:52:53.468Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeToolTip": "MyFirstMvcApp\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEAAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-10T06:02:05.296Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "career.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Home\\career.cshtml",
               "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Home\\career.cshtml",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Home\\career.cshtml",
               "RelativeToolTip": "MyFirstMvcApp\\Views\\Home\\career.cshtml",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAgwGsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-10T06:00:09.144Z"
+              "WhenOpened": "2026-06-11T08:31:00.608Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "MyFirstMvcApp\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "MyFirstMvcApp\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAASwC8AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "MyFirstMvcApp\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "MyFirstMvcApp\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAwKsAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T08:24:39.605Z"
+              "WhenOpened": "2026-06-11T06:18:47.561Z",
+              "EditorCaption": ""
             }
           ]
         }

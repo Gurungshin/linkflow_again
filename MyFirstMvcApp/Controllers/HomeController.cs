@@ -9,10 +9,12 @@ namespace MyFirstMvcApp.Controllers
     public class HomeController : Controller
     {
         private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _environment;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
+        public HomeController(IConfiguration configuration, IWebHostEnvironment environment)
         {
             _configuration = configuration;
+            _environment = environment;
         }
 
         public IActionResult Index()
@@ -65,11 +67,119 @@ namespace MyFirstMvcApp.Controllers
 
         public IActionResult career()
         {
-            return View();
+            List<JobCard> jobCardList = new List<JobCard>();
+            string connStr = _configuration.GetConnectionString("DefaultConnection");
+
+            // The 'using' block guarantees the connection closes safely no matter what
+            using (SqlConnection con = new SqlConnection(connStr))
+            {
+                // Specifying column names explicitly is faster and safer than 'SELECT *'
+                string query = "SELECT ID, JobTitle, Role, JobType, Detail, Keyword, TimeSpan FROM JobCard ORDER BY ID DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            JobCard job = new JobCard
+                            {
+                                ID = Convert.ToInt32(dr["ID"]),
+                                JobTitle = dr["JobTitle"]?.ToString(),
+                                Role = dr["Role"]?.ToString(),
+                                JobType = dr["JobType"]?.ToString(),
+                                Detail = dr["Detail"]?.ToString(),
+                                Keyword = dr["Keyword"]?.ToString(),
+
+                                TimeSpan = dr["TimeSpan"] != DBNull.Value ? Convert.ToDateTime(dr["TimeSpan"]) : DateTime.MinValue
+                            };
+
+                            jobCardList.Add(job);
+                        }
+                    }
+                }
+            } 
+
+            return View(jobCardList);
         }
 
         [HttpPost]
-        public IActionResult career(JobApplicant obj)
+        public IActionResult Career(JobApplications obj)
+        {
+            try
+            {
+                string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+                // ======================
+                // FILE UPLOAD
+                // ======================
+                if (obj.CvFile != null && obj.CvFile.Length > 0)
+                {
+                    string uploadFolder = Path.Combine(_environment.WebRootPath, "CV");
+
+                    if (!Directory.Exists(uploadFolder))
+                    {
+                        Directory.CreateDirectory(uploadFolder);
+                    }
+
+                    string fileName = Guid.NewGuid() + "_" + obj.CvFile.FileName;
+                    string filePath = Path.Combine(uploadFolder, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        obj.CvFile.CopyTo(stream);
+                    }
+
+                    obj.CvPath = "/CV/" + fileName;
+                }
+
+                // ======================
+                // INSERT DATA
+                // ======================
+                using (SqlConnection con = new SqlConnection(conStr))
+                {
+                    string query = @"INSERT INTO JobApplications
+                            (FirstName, Email, Phone, Position, Experience, CoverNote, CvPath)
+                            VALUES
+                            (@FirstName, @Email, @Phone, @Position, @Experience, @CoverNote, @CvPath)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@FirstName", obj.FirstName ?? "");
+                        cmd.Parameters.AddWithValue("@Email", obj.Email ?? "");
+                        cmd.Parameters.AddWithValue("@Phone", obj.Phone ?? "");
+                        cmd.Parameters.AddWithValue("@Position", obj.Position ?? "");
+                        cmd.Parameters.AddWithValue("@Experience", obj.Experience ?? "");
+                        cmd.Parameters.AddWithValue("@CoverNote", obj.CoverNote ?? "");
+                        cmd.Parameters.AddWithValue("@CvPath", (object?)obj.CvPath ?? DBNull.Value);
+
+                        con.Open();
+
+                        int rows = cmd.ExecuteNonQuery();
+
+                        if (rows > 0)
+                        {
+                            TempData["Message"] = "Application Submitted Successfully";
+                        }
+                        else
+                        {
+                            TempData["Message"] = "Application Submission Failed";
+                        }
+                    }
+                }
+
+                return RedirectToAction("Career");
+            }
+            catch (Exception ex)
+            {
+                TempData["Message"] = "Error: " + ex.Message;
+                return RedirectToAction("Career");
+            }
+        }
+
+
+        public IActionResult Blog()
         {
             return View();
         }
@@ -79,9 +189,10 @@ namespace MyFirstMvcApp.Controllers
             return View();
         }
 
-        public IActionResult Blog() => View();
-        public IActionResult BlogDetail() => View();
-        public IActionResult Admin() => View();
+        public IActionResult Admin()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult Admin(Admin obj)

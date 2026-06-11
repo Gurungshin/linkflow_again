@@ -1,4 +1,6 @@
-﻿@{
+﻿@model MyFirstMvcApp.Models.JobCard
+
+@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -14,36 +16,70 @@
 
     <form method="post" class="resource-form-container">
 
+        @if (TempData["Message"] != null)
+        {
+            <label id="mess">@TempData["Message"]</label>
+        }
+
+        <input type="hidden" name="ID" value="@Model?.ID" />
+
         <div class="form-row">
             <div class="form-group">
-                <label for="resourceCategory"> Job Title </label>
-                <input type="text"  placeholder="e.g., Marketing" />
+                <label>Job Title</label>
+                <input type="text"
+                       name="JobTitle"
+                       value="@Model?.JobTitle"
+                       placeholder="e.g., Marketing"
+                       required />
             </div>
 
-                <div class="form-group">
-                    <label for="resourceCategory"> Role </label>
-                    <input type="text"  placeholder="e.g., Marketing Account" />
-                </div>
+            <div class="form-group">
+                <label>Role</label>
+                <input type="text"
+                       name="Role"
+                       value="@Model?.Role"
+                       placeholder="e.g., Marketing Account" />
+            </div>
 
-                <div class="form-group">
-                    <label for="resourceCategory"> Job Type </label>
-                    <input type="text"  placeholder="e.g., parttime, remote job , full time " />
-                </div>
+            <div class="form-group">
+                <label>Job Type</label>
+                <input type="text"
+                       name="JobType"
+                       value="@Model?.JobType"
+                       placeholder="e.g., Part Time, Remote, Full Time" />
+            </div>
         </div>
 
         <div class="form-group full-width">
-            <label for="editor"> Details </label>
-            <textarea id="editor" placeholder="Describe the structural logic mapping..."></textarea>
+            <label>Details</label>
+            <textarea id="editor"
+                      name="Detail"
+                      placeholder="Describe the job details...">@Model?.Detail</textarea>
         </div>
 
-            <div class="form-group full-width">
-                <label for="editor">KeyWord</label>
-                <input type="text" placeholder="e.g., Schema, Kit, Template" />
-            </div>
+        <div class="form-group full-width">
+            <label>Keyword</label>
+            <input type="text"
+                   name="Keyword"
+                   value="@Model?.Keyword"
+                   placeholder="e.g., ASP.NET, SQL, C#" />
+        </div>
 
         <div class="form-actions">
-            <button type="submit" class="btn-submit">Save Entries</button>
+            @if (Model != null && Model.ID > 0)
+            {
+                <button type="submit" class="btn-submit">
+                    Update Job
+                </button>
+            }
+            else
+            {
+                <button type="submit" class="btn-submit">
+                    Save Job
+                </button>
+            }
         </div>
 
     </form>
+
 </main>

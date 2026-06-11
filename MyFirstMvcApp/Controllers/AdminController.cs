@@ -42,14 +42,149 @@ namespace MyFirstMvcApp.Controllers
             return View(contactList);
         }
 
-      public IActionResult jobcard()
+        [HttpGet]
+        public IActionResult jobcard(int? id)
         {
-            return View();
+            JobCard obj = new JobCard();
+
+            if (id != null)
+            {
+                string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT * FROM JobCard WHERE ID = @ID", con);
+
+                cmd.Parameters.AddWithValue("@ID", id);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    obj.ID = Convert.ToInt32(dr["ID"]);
+                    obj.JobTitle = dr["JobTitle"].ToString();
+                    obj.Role = dr["Role"].ToString();
+                    obj.JobType = dr["JobType"].ToString();
+                    obj.Detail = dr["Detail"].ToString();
+                    obj.Keyword = dr["Keyword"].ToString();
+                }
+
+                con.Close();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        public IActionResult jobcard(JobCard obj)
+        {
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            if (obj.ID > 0)
+            {
+                // UPDATE
+                SqlCommand cmd = new SqlCommand(
+                    @"UPDATE JobCard
+          SET JobTitle = @JobTitle,
+              Role = @Role,
+              JobType = @JobType,
+              Detail = @Detail,
+              Keyword = @Keyword
+          WHERE ID = @ID", con);
+
+                cmd.Parameters.AddWithValue("@ID", obj.ID);
+                cmd.Parameters.AddWithValue("@JobTitle", obj.JobTitle);
+                cmd.Parameters.AddWithValue("@Role", obj.Role ?? "");
+                cmd.Parameters.AddWithValue("@JobType", obj.JobType ?? "");
+                cmd.Parameters.AddWithValue("@Detail", obj.Detail ?? "");
+                cmd.Parameters.AddWithValue("@Keyword", obj.Keyword ?? "");
+
+                cmd.ExecuteNonQuery();
+
+                TempData["Message"] = "Job Updated Successfully";
+            }
+            else
+            {
+                // INSERT
+                SqlCommand cmd = new SqlCommand(
+                    @"INSERT INTO JobCard
+          (JobTitle, Role, JobType, Detail, Keyword)
+          VALUES
+          (@JobTitle, @Role, @JobType, @Detail, @Keyword)", con);
+
+                cmd.Parameters.AddWithValue("@JobTitle", obj.JobTitle);
+                cmd.Parameters.AddWithValue("@Role", obj.Role ?? "");
+                cmd.Parameters.AddWithValue("@JobType", obj.JobType ?? "");
+                cmd.Parameters.AddWithValue("@Detail", obj.Detail ?? "");
+                cmd.Parameters.AddWithValue("@Keyword", obj.Keyword ?? "");
+
+                cmd.ExecuteNonQuery();
+
+                TempData["Message"] = "Job Added Successfully";
+            }
+
+            con.Close();
+
+            return RedirectToAction("JobDetail");
         }
 
         public IActionResult JobDetail()
         {
-            return View();
+            List<JobCard> jobList = new List<JobCard>();
+
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM JobCard ORDER BY ID DESC", con);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                jobList.Add(new JobCard
+                {
+                    ID = Convert.ToInt32(dr["ID"]),
+                    JobTitle = dr["JobTitle"].ToString(),
+                    Role = dr["Role"].ToString(),
+                    JobType = dr["JobType"].ToString(),
+                    Detail = dr["Detail"].ToString(),
+                    Keyword = dr["Keyword"].ToString(),
+                    TimeSpan = Convert.ToDateTime(dr["TimeSpan"])
+                });
+            }
+
+            con.Close();
+
+            return View(jobList);
+        }
+
+        public IActionResult DeleteJob(int id)
+        {
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand(
+                "DELETE FROM JobCard WHERE ID = @ID", con);
+
+            cmd.Parameters.AddWithValue("@ID", id);
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            TempData["Message"] = "Job Deleted Successfully";
+
+            return RedirectToAction("JobDetail");
         }
 
         public IActionResult AddFaQ(int? id)

@@ -1,3 +1,5 @@
+﻿
+
 @{
     ViewData["Title"] = "careers";
 }
@@ -71,14 +73,30 @@
     <div class="container">
         <h2 class="positions-section__title">Currently open positions</h2>
         <div class="positions-grid">
-            <a href="#applyForm" class="clean-job-card" onclick="setRole('Senior Backend Engineer')">
-                <div>
-                    <div class="clean-job-card__header">
-                        <h3 class="clean-job-card__title">Senior Backend Engineer</h3>
-                        <div class="clean-job-card__arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg></div>
+         
+            @foreach (var item in Model)
+            {
+                <div class="clean-job-card">
+                    <div>
+                        <div class="clean-job-card__header">
+                            <h3 class="clean-job-card__title">@item.JobTitle</h3>
+
+                            <a href="#applyForm" class="clean-job-card__arrow">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <line x1="7" y1="17" x2="17" y2="7" />
+                                    <polyline points="7 7 17 7 17 17" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="clean-job-card__meta">@item.Role · @item.JobType</div>
+
+                        <div class="clean-job-card__desc">
+                            @Html.Raw(item.Detail)
+                        </div>
                     </div>
-                </div>
-                <div class="clean-job-card__footer">
+
+                    <div class="clean-job-card__footer">
                         <div class="clean-job-card__footer-item">@item.Keyword</div>
 
                         <div class="clean-job-card__footer-item">
@@ -107,32 +125,33 @@
             </div>
 
             <div class="form-pane__body">
-                <form method="post" id="cfForm">
+
+                <form action="/Home/Career"  method="post" enctype="multipart/form-data">
                     <div class="form-row-2col">
                         <div>
                             <label class="cf-label">First Name *</label>
-                            <input class="cf-input" type="text" id="firstName" placeholder="Jane" />
+                            <input class="cf-input" type="text" name="FirstName" placeholder="Jane" />
                         </div>
                         <div>
                             <label class="cf-label">Email *</label>
-                            <input class="cf-input" type="email" id="lastName" placeholder="abc12@gmail.com" />
+                            <input class="cf-input" type="email" name="Email" placeholder="abc12@gmail.com" />
                         </div>
                     </div>
                     <div class="form-row-2col">
                         <div>
                             <label class="cf-label">phone *</label>
-                            <input class="cf-input" type="text" id="emailField" placeholder="+91 89563 02563" />
+                            <input class="cf-input" type="text" name="Phone" placeholder="+91 89563 02563" />
                         </div>
                         <div>
                             <label class="cf-label">Cv Uplaod </label>
-                            <input class="cf-input" type="file" id="phoneField"  />
+                            <input class="cf-input" type="file" name="CvFile" id="phoneField" />
                         </div>
                     </div>
                     <div class="form-divider"><span>Role details</span></div>
                     <div class="form-row-2col">
                         <div>
                             <label class="cf-label">Position *</label>
-                            <select class="cf-input" id="roleField">
+                            <select class="cf-input" name="Position" id="roleField">
                                 <option value="">Select a role…</option>
                                 @foreach (var item in Model)
                                 {
@@ -143,24 +162,39 @@
                         </div>
                         <div>
                             <label class="cf-label">Experience *</label>
-                            <select class="cf-input" id="expField">
+                            <select class="cf-input" name="Experience" id="expField">
                                 <option value="">Select…</option>
-                                <option value="4-6">4–6 years</option>
-                                <option value="7-10">7–10 years</option>
+                                <option value="fresher">fresher</option>
+                                <option value="0-1">0-1 years</option>
+                                <option value="1-3">1-3 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="5">5+ years</option>
                             </select>
                         </div>
                     </div>
                     <div class="mb-4">
                         <label class="cf-label">Why LinkFlow? *</label>
-                        <textarea class="cf-input" id="coverNote" rows="4" placeholder="Tell us what excites you..."></textarea>
+                        <textarea class="cf-input" name="CoverNote" rows="4" placeholder="Tell us what excites you..."></textarea>
                     </div>
-                    <button class="cf-submit" id="submitBtn" onclick="submitApplication()"><span>Submit Application</span></button>
-                </div>
-                </div>
+                    <button class="cf-submit" id="submitBtn" ><span>Submit Application</span></button>
+                </form>
+           
+            </div>
+       
         </div>
     </div>
 </section>
 
+<script>
+    function setRole(jobTitle) {
+        const roleSelect = document.getElementById("roleField");
 
+        if (roleSelect) {
+            roleSelect.value = jobTitle;
+            roleSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            roleSelect.focus();
+        }
+    }
+</script>
 
 
