@@ -7,12 +7,24 @@ namespace MyFirstMvcApp.Controllers
     public class AdminController : Controller
     {
 
-        private readonly IConfiguration _configuration;
+        //private readonly IConfiguration _configuration;
 
-        public AdminController(IConfiguration configuration)
+        //public AdminController(IConfiguration configuration)
+        //{
+        //    _configuration = configuration;
+        //}
+
+        private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _environment;
+
+        public AdminController(IConfiguration configuration,
+                               IWebHostEnvironment environment)
         {
             _configuration = configuration;
+            _environment = environment;
         }
+
+
         public IActionResult Index()
         {
             List<Contact> contactList = new List<Contact>();
@@ -322,8 +334,128 @@ namespace MyFirstMvcApp.Controllers
             return RedirectToAction("FaQdetails");
         }
 
+        [HttpGet]
+        public IActionResult AddService(int? id)
+        {
+            ServiceDetailed obj = new ServiceDetailed();
 
+            if (id != null)
+            {
+                string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM ServiceDetailed WHERE ID = @ID", con);
+
+                cmd.Parameters.AddWithValue("@ID", id);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    obj.ID = Convert.ToInt32(dr["ID"]);
+                    obj.Heading = dr["Heading"].ToString();
+                    obj.Paragraph = dr["Paragraph"].ToString();
+                    obj.ServiceDetails = dr["ServiceDetails"].ToString();
+                }
+
+                con.Close();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        public IActionResult AddService(ServiceDetailed obj)
+        {
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                con.Open();
+
+                if (obj.ID > 0)
+                {
+                    // UPDATE
+                    string query = @"UPDATE ServiceDetailed
+                         SET Heading = @Heading,
+                             Paragraph = @Paragraph,
+                             ServiceDetails = @ServiceDetails
+                         WHERE ID = @ID";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+
+                    cmd.Parameters.AddWithValue("@ID", obj.ID);
+                    cmd.Parameters.AddWithValue("@Heading", obj.Heading);
+                    cmd.Parameters.AddWithValue("@Paragraph", obj.Paragraph);
+                    cmd.Parameters.AddWithValue("@ServiceDetails", obj.ServiceDetails);
+
+                    cmd.ExecuteNonQuery();
+
+                    TempData["Message"] = "Service details updated successfully.";
+                }
+                else
+                {
+                    // INSERT
+                    string query = @"INSERT INTO ServiceDetailed
+                         (Heading, Paragraph, ServiceDetails)  VALUES (@Heading, @Paragraph, @ServiceDetails)";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+
+                    cmd.Parameters.AddWithValue("@Heading", obj.Heading);
+                    cmd.Parameters.AddWithValue("@Paragraph", obj.Paragraph);
+                    cmd.Parameters.AddWithValue("@ServiceDetails", obj.ServiceDetails);
+
+                    cmd.ExecuteNonQuery();
+
+                    TempData["Message"] = "Service details added successfully.";
+                }
+            }
+
+            return RedirectToAction("ServiceDetailed");
+        }
+
+        [HttpGet]
+        public ActionResult ServiceDetailed() 
+        {
+            List<ServiceDetailed> serviceList = new List<ServiceDetailed>();
+
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM ServiceDetailed ORDER BY ID DESC", con);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                serviceList.Add(new ServiceDetailed
+                {
+                    ID = Convert.ToInt32(dr["ID"]),
+                    Heading = dr["Heading"].ToString(),
+                    Paragraph = dr["Paragraph"].ToString(),
+                    ServiceDetails = dr["ServiceDetails"].ToString(),
+                    TimeSpan = Convert.ToDateTime(dr["TimeSpan"])
+                });
+            }
+
+            con.Close();
+
+            return View(serviceList);
+        }
       
+        public ActionResult Addgallery()
+        {
+            return View();
+        }
 
+        public ActionResult GalleryDetailed()
+        {
+            return View();
+        }
     }
 }

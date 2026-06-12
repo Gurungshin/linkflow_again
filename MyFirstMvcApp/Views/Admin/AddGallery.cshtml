@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="header-row">
+        <div class="title-area">
+            <h1>Add Gallery </h1>
+            <div class="context-line">
+                <span>Dashbaord &mdash; <strong>Add Gallery</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <form method="Post" class="resource-form-container">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Add Photo  </label>
+                <div class="file-dropzone">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" style="margin-bottom: 4px; vertical-align: middle;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />.
+                        <polyline points="17 8 12 3 7 8" />
+                        <line x1="12" y1="3" x2="12" y2="15" />
+                    </svg>
+                    <span class="dropzone-text" id="fileLabel">Drop file here or <strong>browse</strong></span>
+                    <input type="file" name="ImageFile"  id="resourceFile" onchange="updateFileName(this)" />
+                </div>
+            </div>
+      
+            <div class="form-group">
+                <label for="resourceTitle"> Caption </label>
+                <input type="text" id="resourceTitle" name="Caption" placeholder="img captaion" required />
+            </div>
+        </div>
+
+        <div class="form-actions">  <button type="submit" class="btn-submit">Save Gallery </button> </div>
+    </form>
+</main>
+
+

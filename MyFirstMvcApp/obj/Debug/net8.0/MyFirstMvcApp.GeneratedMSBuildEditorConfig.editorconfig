@@ -27,8 +27,20 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkRmFRLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/AddGallery.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkR2FsbGVyeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/AddService.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkU2VydmljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/FaQdetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRmFRZGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/GalleryDetailed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cR2FsbGVyeURldGFpbGVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/Index.cshtml]
@@ -41,6 +53,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/JobDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSm9iRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/ServiceDetailed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2VydmljZURldGFpbGVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DELL/OneDrive/Desktop/MyFirstMvcApp/MyFirstMvcApp/Views/Admin/_ViewStart.cshtml]

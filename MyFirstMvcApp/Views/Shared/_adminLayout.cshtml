@@ -69,17 +69,35 @@
 
             <div class="nav-item" onclick="toggleDropdown('dd-analytics', this)">
                 <span style="display:flex;align-items:center;gap:8px;">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" />
-                        <line x1="6" y1="20" x2="6" y2="14" /></svg>
-                    Analytics
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                        <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    Service Detailed
                 </span>
                 <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg>
             </div>
             <div class="nav-dropdown" id="dd-analytics">
-                <a href="#" class="nav-sub-item">Reports</a>
-                <a href="#" class="nav-sub-item">Audit Logs</a>
+                <a href="/Admin/AddService" class="nav-sub-item"> Add Service detailed </a>
+                <a href="/Admin/ServiceDetailed" class="nav-sub-item"> Serivice Detailed </a>
             </div>
+
+            <div class="nav-item" onclick="toggleDropdown('dd-gallery', this)">
+                <span style="display:flex;align-items:center;gap:8px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
+                    </svg>
+                    Gallery
+                </span>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg>
+            </div>
+            <div class="nav-dropdown" id="dd-gallery">
+                <a href="/Admin/AddGallery" class="nav-sub-item"> Add Gallery </a>
+                <a href="/Admin/GalleryDetailed" class="nav-sub-item"> Gallery Detailed </a>
+            </div>
+
 
 
         </nav>
@@ -94,6 +112,9 @@
                 Log Out
             </button>
         </div>
+
+
+
     </aside>
 
             @RenderBody()
