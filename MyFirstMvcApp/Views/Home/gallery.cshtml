@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<MyFirstMvcApp.Models.Gallery>
+
+@{
     ViewData["Title"] = "gallery";
 }
 
@@ -9,7 +11,7 @@
     <div class="hero-banner-text w-100">
         <div class="container conx">
             <div class="hero-eyebrow"><span></span> What We Offer</div>
-            <h1>Services built to <em>close every gap</em> in your stack</h1>
+            <h1>Our <em>Gallery</em></h1>
         </div>
     </div>
 </div>
@@ -18,53 +20,20 @@
     <div class="container conx">
         <div class="services-gallery-grid">
 
-            <div class="cardxx">
-                <div class="cardxx-image">
-                    <a href="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" data-fancybox="gallery" data-caption="Caption Images 1">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" alt="Image Gallery">
-                    </a>
-                </div>
-            </div>
+            @foreach (var item in Model)
+            {
+                <div class="cardxx">
+                    <div class="cardxx-image">
+                        <a href="@item.ImagePath"
+                           data-fancybox="gallery"
+                           data-caption="@item.Caption">
 
-            <div class="cardxx">
-                <div class="cardxx-image">
-                    <a href="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" data-fancybox="gallery" data-caption="Caption Images 1">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" alt="Image Gallery">
-                    </a>
+                            <img src="@item.ImagePath"
+                                 alt="@item.Caption">
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="cardxx">
-                <div class="cardxx-image">
-                    <a href="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" data-fancybox="gallery" data-caption="Caption Images 1">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" alt="Image Gallery">
-                    </a>
-                </div>
-            </div>
-
-            <div class="cardxx">
-                <div class="cardxx-image">
-                    <a href="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" data-fancybox="gallery" data-caption="Caption Images 1">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" alt="Image Gallery">
-                    </a>
-                </div>
-            </div>
-
-            <div class="cardxx">
-                <div class="cardxx-image">
-                    <a href="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" data-fancybox="gallery" data-caption="Caption Images 1">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" alt="Image Gallery">
-                    </a>
-                </div>
-            </div>
-
-            <div class="cardxx">
-                <div class="cardxx-image">
-                    <a href="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" data-fancybox="gallery" data-caption="Caption Images 1">
-                        <img src="https://cdn.pixabay.com/photo/2023/05/22/10/49/houses-8010401_1280.jpg" alt="Image Gallery">
-                    </a>
-                </div>
-            </div>
+            }
 
         </div>
     </div>

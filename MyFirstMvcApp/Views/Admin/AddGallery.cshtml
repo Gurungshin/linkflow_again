@@ -12,7 +12,10 @@
         </div>
     </div>
 
-    <form method="Post" class="resource-form-container">
+    <form method="Post" enctype="multipart/form-data" class="resource-form-container">
+        <input type="hidden" name="Id" value="@Model?.Id" />
+        <input type="hidden" name="ImagePath" value="@Model?.ImagePath" />
+        
         <div class="form-row">
             <div class="form-group">
                 <label>Add Photo  </label>
@@ -23,18 +26,27 @@
                         <line x1="12" y1="3" x2="12" y2="15" />
                     </svg>
                     <span class="dropzone-text" id="fileLabel">Drop file here or <strong>browse</strong></span>
-                    <input type="file" name="ImageFile"  id="resourceFile" onchange="updateFileName(this)" />
+                    <input type="file" name="ImageFile" id="resourceFile" onchange="updateFileName(this)" />
+                    @if (Model != null && !string.IsNullOrEmpty(Model.ImagePath))
+                    {
+                        <div style="margin-top:10px;">
+                            <img src="@Model.ImagePath" width="150" />
+                        </div>
+                    }
                 </div>
             </div>
       
             <div class="form-group">
                 <label for="resourceTitle"> Caption </label>
-                <input type="text" id="resourceTitle" name="Caption" placeholder="img captaion" required />
+                <input type="text" id="resourceTitle" name="Caption" value="@Model?.Caption" placeholder="img captaion" required />
             </div>
         </div>
 
-        <div class="form-actions">  <button type="submit" class="btn-submit">Save Gallery </button> </div>
+        <div class="form-actions"> 
+            <button type="submit" class="btn-submit">     @(Model != null && Model.Id > 0 ? "Update Gallery" : "Save Gallery") </button>
+        </div>
     </form>
+
 </main>
 
 

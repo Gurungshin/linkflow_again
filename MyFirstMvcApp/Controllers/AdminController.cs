@@ -7,13 +7,6 @@ namespace MyFirstMvcApp.Controllers
     public class AdminController : Controller
     {
 
-        //private readonly IConfiguration _configuration;
-
-        //public AdminController(IConfiguration configuration)
-        //{
-        //    _configuration = configuration;
-        //}
-
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _environment;
 
@@ -447,15 +440,193 @@ namespace MyFirstMvcApp.Controllers
 
             return View(serviceList);
         }
-      
-        public ActionResult Addgallery()
+
+        [HttpGet]
+        public ActionResult Addgallery(int? Id)
         {
-            return View();
+            Gallery obj = new Gallery();
+
+            if (Id != null)
+            {
+                string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Gallery WHERE Id=@Id", con);
+                cmd.Parameters.AddWithValue("@Id", Id);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    obj.Id = Convert.ToInt32(dr["Id"]);
+                    obj.ImagePath = dr["ImagePath"].ToString();
+                    obj.Caption = dr["Caption"].ToString();
+                }
+
+                con.Close();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        public ActionResult Addgallery(Gallery obj)
+        {
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            string imagePath = obj.ImagePath;
+
+            if (obj.ImageFile != null)
+            {
+                string folder = Path.Combine(_environment.WebRootPath, "serverImage");
+
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+
+                string fileName = Guid.NewGuid().ToString() +
+                                  Path.GetExtension(obj.ImageFile.FileName);
+
+                string filePath = Path.Combine(folder, fileName);
+
+                using (FileStream stream = new FileStream(filePath, FileMode.Create))
+                {
+                    obj.ImageFile.CopyTo(stream);
+                }
+
+                imagePath = "/serverImage/" + fileName;
+            }
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd;
+
+            if (obj.Id > 0)
+            {
+                cmd = new SqlCommand(
+                    "UPDATE Gallery SET ImagePath=@ImagePath, Caption=@Caption WHERE Id=@Id",
+                    con);
+
+                cmd.Parameters.AddWithValue("@Id", obj.Id);
+            }
+            else
+            {
+                cmd = new SqlCommand(
+                    "INSERT INTO Gallery(ImagePath, Caption) VALUES(@ImagePath, @Caption)",
+                    con);
+            }
+
+            cmd.Parameters.AddWithValue("@ImagePath", imagePath);
+            cmd.Parameters.AddWithValue("@Caption", obj.Caption);
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            TempData["Message"] = obj.Id > 0
+                ? "Gallery Updated Successfully"
+                : "Gallery Saved Successfully";
+
+            return RedirectToAction("GalleryDetailed");
         }
 
         public ActionResult GalleryDetailed()
         {
+            List<Gallery> list = new List<Gallery>();
+
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Gallery ORDER BY ID DESC", con);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Gallery obj = new Gallery();
+
+                obj.Id = Convert.ToInt32(dr["ID"]);
+                obj.ImagePath = dr["ImagePath"].ToString();
+                obj.Caption = dr["Caption"].ToString();
+
+                list.Add(obj);
+            }
+
+            con.Close();
+
+            return View(list);
+        }
+
+        [HttpGet]
+        public IActionResult DeleteGallery(int id)
+        {
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            string imagePath = "";
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            // Get image path first
+            SqlCommand cmd = new SqlCommand(
+                "SELECT ImagePath FROM Gallery WHERE Id=@Id", con);
+
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            object result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                imagePath = result.ToString();
+            }
+
+            // Delete database record
+            cmd = new SqlCommand(
+                "DELETE FROM Gallery WHERE Id=@Id", con);
+
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            // Delete physical file
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                string fullPath = Path.Combine(
+                    _environment.WebRootPath,
+                    imagePath.TrimStart('/').Replace("/", "\\"));
+
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                }
+            }
+
+            TempData["Message"] = "Gallery Deleted Successfully";
+
+            return RedirectToAction("GalleryDetailed");
+        }
+   
+        public IActionResult BlogCard()
+        {
             return View();
         }
+
+        public IActionResult BlogCarddetailed()
+        {
+            return View();
+        }
+    
+    
+    
+    
+    
     }
 }

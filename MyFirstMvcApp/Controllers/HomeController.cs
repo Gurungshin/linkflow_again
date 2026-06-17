@@ -62,7 +62,36 @@ namespace MyFirstMvcApp.Controllers
 
         public IActionResult gallery()
         {
-            return View();
+            List<Gallery> list = new List<Gallery>();
+
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Gallery ORDER BY Id DESC", con);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Gallery obj = new Gallery();
+
+                obj.Id = Convert.ToInt32(dr["Id"]);
+                obj.ImagePath = dr["ImagePath"].ToString();
+                obj.Caption = dr["Caption"].ToString();
+
+                if (dr["TimeSpan"] != DBNull.Value)
+                {
+                    obj.TimeSpan = Convert.ToDateTime(dr["TimeSpan"]);
+                }
+
+                list.Add(obj);
+            }
+
+            con.Close();
+
+            return View(list);
         }
 
         public IActionResult career()

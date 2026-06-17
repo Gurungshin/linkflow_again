@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="header-row">
+        <div class="title-area">
+            <h1>BlogCard</h1>
+            <div class="context-line">
+                <span>Dashbaord &mdash; <strong>BlogCard </strong></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-tabs">
+        <a href="#" class="tab-link active">All Files</a>
+    </div>
+
+    <div class="controls-bar">
+        <div class="search-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="tableSearch" class="search-input" placeholder="Search entries..." />
+        </div>
+
+    </div>
+
+    <div class="table-container">
+        <table id="resourcesTable">
+            <thead>
+                <tr>
+                    <th style="width: 10%">id</th>
+                    <th style="width: 25%">Image</th>
+                    <th style="width: 10%">Heading</th>
+                    <th style="width: 10%">Url</th>
+                    <th style="width: 35%">Paragraph</th>
+                    <th style="width: 10%; text-align: right">Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr class="table-row">
+                    <td data-label="Id"><span class="td-name"><a href="#">1</a></span> </td>
+                    <td data-label="Image"><img src="" width="40px" height="40px"/></td>
+                    <td data-label="Heading" class="td-meta">Blog Card 1</td>
+                    <td data-label="Url" class="td-meta"><a href="#"> this is URL</a> </td>
+                    <td data-label="Paragraph" class="td-meta">Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </td>
+                    <td data-label="Action" style="text-align:right; cursor:pointer;">   
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                             <polyline points="3 6 5 6 21 6"></polyline>
+                               <path d="M19 6l-1 14H6L5 6"></path>
+                               <path d="M10 11v6"></path>
+                               <path d="M14 11v6"></path>
+                               <path d="M9 6V4h6v2"></path>
+                        </svg>
+                      </td>
+                </tr>
+              
+              
+            </tbody>
+        </table>
+
+        <div id="noResults" class="no-results">No resources match your search.</div>
+
+        <div class="pagination-footer">
+            <span id="paginationInfo"></span>
+            <div class="pagination-buttons" id="paginationBtns"></div>
+        </div>
+    </div>
+</main>
+
+
+
+

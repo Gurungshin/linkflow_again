@@ -35,29 +35,42 @@
                 </tr>
             </thead>
             <tbody id="tableBody">
-                <tr class="table-row">
-                    <td data-label="Name"> <a href="/Admin/AddGallery"> 1 </a> </td>
-                    <td data-label="Image"><img src="" alt="photo image"/></td>
-                    <td data-label="Caption" class="td-meta">Caption will be here </td>
-                    <td data-label="Action" style="text-align:right">
-                        <a href="/Admin/AddGallery"
-                           class="btn-delete"
-                           onclick="return confirm('Are you sure you want to delete this FAQ?');">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="3 6 5 6 21 6"></polyline>
-                                <path d="M19 6l-1 14H6L5 6"></path>
-                                <path d="M10 11v6"></path>
-                                <path d="M14 11v6"></path>
-                                <path d="M9 6V4h6v2"></path>
-                            </svg>
-                        </a>
-                    </td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td data-label="ID">
+                            <a href="/Admin/AddGallery?id=@item.Id">
+                                @item.Id
+                            </a>
+                        </td>
+
+                        <td data-label="Image">
+                            <img src="@item.ImagePath" width="120" height="80" alt="Gallery Image" />
+                        </td>
+
+                        <td data-label="Caption">
+                            @item.Caption
+                        </td>
+
+                        <td data-label="Action" style="text-align:right">
+                            <a href="/Admin/DeleteGallery?id=@item.Id"
+                               class="btn-delete"
+                               onclick="return confirm('Are you sure you want to delete this gallery?');">
+                                <svg width="16" height="16" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6l-1 14H6L5 6"></path>
+                                    <path d="M10 11v6"></path>
+                                    <path d="M14 11v6"></path>
+                                    <path d="M9 6V4h6v2"></path>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                }
 
             </tbody>
         </table>
-
-        <div id="noResults" class="no-results">No resources match your search.</div>
 
         <div class="pagination-footer">
             <span id="paginationInfo"></span>
