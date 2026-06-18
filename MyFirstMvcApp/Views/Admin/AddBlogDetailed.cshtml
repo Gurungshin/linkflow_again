@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <div class="header-row">
+        <div class="title-area">
+            <h1>Add Blog Detailed</h1>
+            <div class="context-line">
+                <span>Dashbaord &mdash; <strong>Add BlogDetailed</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" class="resource-form-container">
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Url</label>
+                <select name="URL" class="form-select">
+                    <option value="">Select URL</option>
+
+                    @foreach (var item in ViewBag.BlogList)
+                    {
+                        <option value="@item.URL">@item.URL</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Blog Heading</label>
+                <input type="text" name="BlogHeading" placeholder="Blog Heading" />
+            </div>
+
+            <div class="form-group">
+                <label>Images</label>
+                <div class="file-dropzone">
+                    <span class="dropzone-text">Drop file here or <strong>browse</strong></span>
+                    <input type="file" name="ImageFile" id="resourceFile" onchange="updateFileName(this)" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Keyword</label>
+            <input type="text" name="Keyword" placeholder="Keyword" required />
+        </div>
+
+        <div class="form-group full-width">
+            <label>Paragraph</label>
+            <textarea id="editor" name="Paragraph"></textarea>
+        </div>
+
+        <div class="form-group full-width">
+            <label>Author</label>
+            <textarea id="editor2" name="Author"></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">Save Entries</button>
+        </div>
+
+    </form>
+</main>
+
+<script>
+    ClassicEditor
+    .create(document.querySelector('#editor'), {
+      toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo' ]
+    })
+    .catch(error => {
+      console.error(error);
+    });
+</script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor2'))
+        .catch(error => console.error(error));
+</script>

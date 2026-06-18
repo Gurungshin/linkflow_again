@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <form class="resource-form-container" onsubmit="event.preventDefault(); alert('Form submitted!');">
+    <form method="post" enctype="multipart/form-data" class="resource-form-container">
 
         <div class="form-row">
           
@@ -22,25 +22,25 @@
                 <div class="file-dropzone">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" style="margin-bottom: 4px; vertical-align: middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
                     <span class="dropzone-text" id="fileLabel">Drop file here or <strong>browse</strong></span>
-                    <input type="file" id="resourceFile" onchange="updateFileName(this)" />
+                    <input type="file" id="resourceFile" name="ImageFile" value="@Model?.ImagePath" onchange="updateFileName(this)" />
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="resourceCategory">Heading</label>
-                <input type="text"  placeholder="e.g., Schema, Kit, Template" />
+                <input type="text" name="Heading" value="@Model?.Heading" placeholder="e.g., Schema, Kit, Template" />
             </div>
 
             <div class="form-group">
                 <label for="resourceCategory">Url</label>
-                <input type="text" placeholder="e.g., Schema, Kit, Template" />
+                <input type="text" name="URL" value="@Model?.URL" placeholder="e.g., Schema, Kit, Template" />
             </div>
 
         </div>
 
         <div class="form-group full-width">
             <label for="editor"> Paragarph </label>
-            <textarea id="editor" placeholder="Describe the structural logic mapping..."></textarea>
+            <textarea id="editor" name="Detail" placeholder="Describe the structural logic mapping...">@Model?.Detail</textarea>
         </div>
 
         <div class="form-actions">
