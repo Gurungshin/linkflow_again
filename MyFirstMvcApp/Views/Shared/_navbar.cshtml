@@ -11,10 +11,22 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
             </a>
             <div class="dropdown-menu">
-                <a href="/Home/serviceDetail" class="nav-a">Workflow Automation</a>
-                <a href="/Home/serviceDetail" class="nav-a">FluxEngine AI</a>
-                <a href="/Home/serviceDetail" class="nav-a">Integrations</a>
-                <a href="/Home/serviceDetail" class="nav-a">Consulting</a>
+                @* <a href="/Home/ServiceDetail">Workflow Automation</a>
+                <a href="Service-detailed.html">FluxEngine AI</a>
+                <a href="Service-detailed.html">Integrations</a>
+                <a href="Service-detailed.html">Consulting</a> *@
+
+                @foreach (var item in ViewBag.ServiceList)
+                {
+                    <a asp-controller="Home"
+                       asp-action="serviceDetail"
+                       asp-route-url="@item.URL"
+                       class="nav-a">
+                        @item.URL
+                    </a>
+                }
+
+
             </div>
         </div>
 
@@ -43,10 +55,15 @@
             </button>
             <div class="drawer-accordion-panel">
                 <div>
-                    <a href="Service-detailed.html">Workflow Automation</a>
-                    <a href="Service-detailed.html">FluxEngine AI</a>
-                    <a href="Service-detailed.html">Integrations</a>
-                    <a href="Service-detailed.html">Consulting</a>
+                    @foreach (var item in ViewBag.ServiceList)
+                    {
+                        <a asp-controller="Home"
+                           asp-action="serviceDetail"
+                           asp-route-url="@item.URL"
+                           class="nav-a">
+                            @item.URL
+                        </a>
+                    }
                 </div>
             </div>
         </div>

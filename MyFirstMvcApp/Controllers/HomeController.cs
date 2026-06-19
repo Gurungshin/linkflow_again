@@ -19,17 +19,51 @@ namespace MyFirstMvcApp.Controllers
 
         public IActionResult Index()
         {
+
+            ViewData["Title"] = "LinkFlow | Workflow Automation & AI Integration";
+            ViewData["Description"] = "LinkFlow helps businesses automate workflows, integrate systems, and streamline operations with intelligent automation and AI solutions.";
+            LoadServiceMenu();
             return View();
+        }
+
+        private void LoadServiceMenu()
+        {
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            List<ServiceDetailed> list = new List<ServiceDetailed>();
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand(
+                "SELECT Heading, URL FROM ServiceDetailed ORDER BY ID", con);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                list.Add(new ServiceDetailed
+                {
+                    Heading = dr["Heading"].ToString(),
+                    URL = dr["URL"].ToString()
+                });
+            }
+
+            dr.Close();
+            con.Close();
+
+            ViewBag.ServiceList = list;
         }
 
         public IActionResult Privacy()
         {
+            LoadServiceMenu();
             return View();
         }
 
         public IActionResult About()
         {
-
+            LoadServiceMenu();
             List<FAQ> faqList = new List<FAQ>();
 
             SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
@@ -55,13 +89,71 @@ namespace MyFirstMvcApp.Controllers
             return View(faqList);
         }
 
-        public IActionResult serviceDetail()
+        [HttpGet]
+        [Route("service/{url}")]
+        public IActionResult serviceDetail(string url)
         {
-            return View();
+            LoadServiceMenu();
+            ServiceDetailed obj = new ServiceDetailed();
+
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM ServiceDetailed WHERE URL=@URL", con);
+
+            cmd.Parameters.AddWithValue("@URL", url);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                obj.ID = Convert.ToInt32(dr["ID"]);
+                obj.Heading = dr["Heading"].ToString();
+                obj.Paragraph = dr["Paragraph"].ToString();
+                obj.ServiceDetails = dr["ServiceDetails"].ToString();
+                obj.URL = dr["URL"].ToString();
+                obj.TimeSpan = Convert.ToDateTime(dr["TimeSpan"]);
+            }
+
+            dr.Close();
+            con.Close();
+
+            return View(obj);
         }
 
+        [HttpPost]
+        [Route("service/{url}")]
+        public IActionResult serviceDetail(string url, ContactService obj)
+        {
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand(@"
+        INSERT INTO ContactService
+        (Name,Email,CompanyName,Service,Message)
+        VALUES
+        (@Name,@Email,@CompanyName,@Service,@Message)", con);
+
+            cmd.Parameters.AddWithValue("@Name", obj.Name ?? "");
+            cmd.Parameters.AddWithValue("@Email", obj.Email ?? "");
+            cmd.Parameters.AddWithValue("@CompanyName", obj.CompanyName ?? "");
+            cmd.Parameters.AddWithValue("@Service", obj.Service ?? "");
+            cmd.Parameters.AddWithValue("@Message", obj.Message ?? "");
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            return RedirectToAction("Thankyou");
+        }
         public IActionResult gallery()
         {
+            LoadServiceMenu();
             List<Gallery> list = new List<Gallery>();
 
             string conStr = _configuration.GetConnectionString("DefaultConnection");
@@ -96,6 +188,7 @@ namespace MyFirstMvcApp.Controllers
 
         public IActionResult career()
         {
+            LoadServiceMenu();
             List<JobCard> jobCardList = new List<JobCard>();
             string connStr = _configuration.GetConnectionString("DefaultConnection");
 
@@ -136,6 +229,7 @@ namespace MyFirstMvcApp.Controllers
         [HttpPost]
         public IActionResult Career(JobApplications obj)
         {
+            LoadServiceMenu();
             try
             {
                 string conStr = _configuration.GetConnectionString("DefaultConnection");
@@ -207,19 +301,140 @@ namespace MyFirstMvcApp.Controllers
             }
         }
 
-
         public IActionResult Blog()
         {
-            return View();
+            LoadServiceMenu();
+            List<BlogCard> list = new List<BlogCard>();
+
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BlogCard ORDER BY ID DESC", con);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                BlogCard obj = new BlogCard();
+
+                obj.ID = Convert.ToInt32(dr["ID"]);
+                obj.Heading = dr["Heading"].ToString();
+                obj.ImagePath = dr["ImagePath"].ToString();
+                obj.URL = dr["URL"].ToString();
+                obj.Detail = dr["Detail"].ToString();
+                obj.TimeSpan = Convert.ToDateTime(dr["TimeSpan"]);
+
+                list.Add(obj);
+            }
+
+            con.Close();
+
+            return View(list);
         }
 
-        public IActionResult BlogDetail()
+        [HttpGet]
+        [Route("blog/{url}")]
+        public IActionResult BlogDetail(string url)
         {
-            return View();
+            //LoadServiceMenu();
+            //string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            //Blogdetails obj = new Blogdetails();
+
+            //SqlConnection con = new SqlConnection(conStr);
+            //con.Open();
+
+            //SqlCommand cmd = new SqlCommand(
+            //    "SELECT * FROM BlogDetails WHERE URL=@URL", con);
+
+            //cmd.Parameters.AddWithValue("@URL", url);   // <-- this line is required
+
+            //SqlDataReader dr = cmd.ExecuteReader();
+
+            //if (dr.Read())
+            //{
+            //    obj.ID = Convert.ToInt32(dr["ID"]);
+            //    obj.BlogHeading = dr["BlogHeading"].ToString();
+            //    obj.ImagePath = dr["ImagePath"].ToString();
+            //    obj.Author = dr["Author"].ToString();
+            //    obj.Keyword = dr["Keyword"].ToString();
+            //    obj.URL = dr["URL"].ToString();
+            //    obj.Paragraph = dr["Paragraph"].ToString();
+            //}
+
+            //con.Close();
+
+            //return View(obj);
+            LoadServiceMenu();
+
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            Blogdetails obj = new Blogdetails();
+
+            List<BlogCard> relatedBlogs = new List<BlogCard>();
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            // Current Blog
+            SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM BlogDetails WHERE URL=@URL", con);
+
+            cmd.Parameters.AddWithValue("@URL", url);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                obj.ID = Convert.ToInt32(dr["ID"]);
+                obj.BlogHeading = dr["BlogHeading"].ToString();
+                obj.ImagePath = dr["ImagePath"].ToString();
+                obj.Author = dr["Author"].ToString();
+                obj.Keyword = dr["Keyword"].ToString();
+                obj.URL = dr["URL"].ToString();
+                obj.Paragraph = dr["Paragraph"].ToString();
+                obj.TimeSpan = Convert.ToDateTime(dr["TimeSpan"]);
+            }
+
+            dr.Close();
+
+            // Related Blogs
+            SqlCommand cmd2 = new SqlCommand(
+                @"SELECT TOP 3 *
+          FROM BlogCard
+          WHERE URL <> @URL
+          ORDER BY ID DESC", con);
+
+            cmd2.Parameters.AddWithValue("@URL", url);
+
+            SqlDataReader dr2 = cmd2.ExecuteReader();
+
+            while (dr2.Read())
+            {
+                relatedBlogs.Add(new BlogCard
+                {
+                    ID = Convert.ToInt32(dr2["ID"]),
+                    Heading = dr2["Heading"].ToString(),
+                    ImagePath = dr2["ImagePath"].ToString(),
+                    Detail = dr2["Detail"].ToString(),
+                    URL = dr2["URL"].ToString(),
+                    TimeSpan = Convert.ToDateTime(dr2["TimeSpan"])
+                });
+            }
+
+            dr2.Close();
+            con.Close();
+
+            ViewBag.RelatedBlogs = relatedBlogs;
+
+            return View(obj);
         }
 
         public IActionResult Admin()
         {
+            LoadServiceMenu();
             return View();
         }
 
@@ -257,6 +472,7 @@ namespace MyFirstMvcApp.Controllers
 
         public IActionResult Contact()
         {
+            LoadServiceMenu();
             return View();
         }
 
@@ -288,7 +504,11 @@ namespace MyFirstMvcApp.Controllers
             return View();
         }
 
-
+        public IActionResult Thankyou()
+        {
+            LoadServiceMenu();
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

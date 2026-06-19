@@ -21,14 +21,20 @@
         </div>
 
         <div class="footer-col">
-            <h4>Product</h4>
+            <h4>Service</h4>
             <ul>
-                <li><a href="#">FluxEngine AI</a></li>
-                <li><a href="#">Integrations</a></li>
-                <li><a href="#">Workflow Builder</a></li>
-                <li><a href="#">Observability</a></li>
-                <li><a href="#">Security</a></li>
-                <li><a href="#">Changelog</a></li>
+
+                @foreach (var item in ViewBag.ServiceList)
+                {
+                    <li>
+                        <a asp-controller="Home"
+                       asp-action="serviceDetail"
+                       asp-route-url="@item.URL"
+                       class="nav-a">
+                        @item.URL
+                    </a>
+                    </li>
+                }
             </ul>
         </div>
 

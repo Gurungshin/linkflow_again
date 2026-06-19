@@ -16,25 +16,35 @@
 
         <div class="form-row">
 
+            <input type="hidden" name="ID" value="@Model.ID" />
+            <input type="hidden" name="ImagePath" value="@Model.ImagePath" />
+
+
             <div class="form-group">
                 <label>Url</label>
-                <select name="URL" class="form-select">
+                <select name="BlogCardID" class="form-select">
                     <option value="">Select URL</option>
 
                     @foreach (var item in ViewBag.BlogList)
                     {
-                        <option value="@item.URL">@item.URL</option>
+                        <option value="@item.ID" selected="@(item.ID == Model.BlogCardID)">
+                            @item.URL
+                        </option>
                     }
                 </select>
             </div>
 
             <div class="form-group">
                 <label>Blog Heading</label>
-                <input type="text" name="BlogHeading" placeholder="Blog Heading" />
+                <input type="text" name="BlogHeading" value="@Model.BlogHeading" placeholder="Blog Heading" />
             </div>
 
             <div class="form-group">
                 <label>Images</label>
+                @if (!string.IsNullOrEmpty(Model.ImagePath))
+                {
+                    <img src="@Model.ImagePath" width="100" class="mb-2" />
+                }
                 <div class="file-dropzone">
                     <span class="dropzone-text">Drop file here or <strong>browse</strong></span>
                     <input type="file" name="ImageFile" id="resourceFile" onchange="updateFileName(this)" />
@@ -45,17 +55,17 @@
 
         <div class="form-group">
             <label>Keyword</label>
-            <input type="text" name="Keyword" placeholder="Keyword" required />
+            <input type="text" name="Keyword" value="@Model.Keyword" placeholder="Keyword" required />
         </div>
 
         <div class="form-group full-width">
             <label>Paragraph</label>
-            <textarea id="editor" name="Paragraph"></textarea>
+            <textarea id="editor" name="Paragraph">@Model.Paragraph</textarea>
         </div>
 
         <div class="form-group full-width">
             <label>Author</label>
-            <textarea id="editor2" name="Author"></textarea>
+            <textarea id="editor2" name="Author">@Model.Author</textarea>
         </div>
 
         <div class="form-actions">

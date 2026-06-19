@@ -4,6 +4,17 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<style>
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .table {
+        min-width: 1600px; /* Adjust based on your columns */
+    }
+</style>
+
 <main>
     <div class="header-row">
         <div class="title-area">
@@ -24,12 +35,12 @@
         </div>
     </div>
 
-    <div class="table-container">
-        <table id="resourcesTable">
+    <div class="table-container table-responsive">
+        <table id="resourcesTable" class="table">
             <thead>
                 <tr>
-                    <th style="width: 6%">Id</th>
-                    <th style="width: 12%">Heading</th>
+                    <th style="width: 5%">Id</th>
+                    <th style="width: 15%">Heading</th>
                     <th style="width: 7%">Image</th>
                     <th style="width: 7%">Url</th>
                     <th style="width: 18%">Small detailed</th>
@@ -39,27 +50,62 @@
                 </tr>
             </thead>
             <tbody id="tableBody">
-                <tr class="table-row">
-                    <td data-label="Id"> <a href="#">1 </a></td>
-                    <td data-label="Heading">Standard corporate MSA template for inbound.</td>
-                    <td data-label="Image" ><img src="" width="100" height="100"/></td>
-                    <td data-label="Url" > Blog 1</td>
-                    <td data-label="Small detailed">Standard corporate MSA template for inbound workflow automation</td>
-                    <td data-label="Blog detailed">Standard corporate MSA template for inbound workflow automation</td>
-                    <td data-label="Author detailed">Standard corporate MSA template for inbound workflow automation</td>
-                    <td data-label="Action" style="text-align:right;">  <a href="#"
-                               class="btn-delete"
-                               onclick="return confirm('Are you sure you want to delete this Blogdetailed?');">
-                                <svg width="16" height="16" viewBox="0 0 24 24"
-                                     fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path d="M19 6l-1 14H6L5 6"></path>
-                                    <path d="M10 11v6"></path>
-                                    <path d="M14 11v6"></path>
-                                    <path d="M9 6V4h6v2"></path>
-                                </svg>
-                            </a> </td>
-                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr class="table-row">
+                        <td data-label="Id">
+                            <a href="/Admin/AddBlogDetailed?Id=@item.ID">@item.ID</a>
+                        </td>
+
+                        <td data-label="Heading">
+                            @item.BlogHeading
+                        </td>
+
+                        <td data-label="Image">
+                            <img src="@item.ImagePath" width="100" height="100" />
+                        </td>
+
+                        <td data-label="Url">
+                            @item.URL
+                        </td>
+
+                        <td data-label="Small detailed">
+                            @item.Keyword
+                        </td>
+
+                        <td data-label="Blog detailed">
+                        @{
+                          var paragraph = System.Text.RegularExpressions.Regex.Replace(item.Paragraph ?? "", "<.*?>", "");
+                        }
+               @(paragraph.Length > 50 ? paragraph.Substring(0, 50) + "..." : paragraph)
+              </td>
+
+                <td data-label="Author detailed">
+                  @{
+                    var author = System.Text.RegularExpressions.Regex.Replace(item.Author ?? "", "<.*?>", "");
+                   }
+                   @(author.Length > 50 ? author.Substring(0, 50) + "..." : author)
+              </td>
+
+                <td data-label="Action" style="text-align:right;">
+                           <a asp-action="DeleteBlogDetailed"
+                            asp-route-id="@item.ID"
+                             class="btn-delete"
+                             onclick="return confirm('Are you sure you want to delete this Blog Detail?');">
+
+                               <svg width="16" height="16" viewBox="0 0 24 24"
+                               fill="none" stroke="currentColor" stroke-width="2">
+                              <polyline points="3 6 5 6 21 6"></polyline>
+                              <path d="M19 6l-1 14H6L5 6"></path>
+                             <path d="M10 11v6"></path>
+                             <path d="M14 11v6"></path>
+                            <path d="M9 6V4h6v2"></path>
+                         </svg>
+                      </a>
+                </td>
+    </tr>
+}
                
                 
             </tbody>

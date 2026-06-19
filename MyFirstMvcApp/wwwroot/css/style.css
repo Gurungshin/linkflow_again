@@ -168,7 +168,7 @@ nav.scrolled .pill-nav .has-dropdown.open > a svg {
   display: block;
   padding: 0.5rem 0.875rem;
   font-size: 0.8125rem;
-  color: #4b5b47;
+  color: #4b5b47 !important;
   text-decoration: none;
   border-radius: 0.5rem;
   transition: background 0.12s, color 0.12s;

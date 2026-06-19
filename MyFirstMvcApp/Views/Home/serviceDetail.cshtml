@@ -1,4 +1,6 @@
-﻿@{
+﻿@model MyFirstMvcApp.Models.ServiceDetailed
+
+@{
     ViewData["Title"] = "service-detailed";
 }
 
@@ -10,7 +12,7 @@
     <div class="hero-banner-text w-100">
         <div class="custom-container">
             <div class="hero-eyebrow"><span></span> Service Detailed </div>
-            <h1>Services built to in your stack</h1>
+            <h1>@Model.Heading</h1>
         </div>
     </div>
 </div>
@@ -21,35 +23,15 @@
         <div class="content-column-left">
 
             <div class="intro-block pb-5" id="servicesIntro">
-                <p class="mb-4">LinkFlow exists to eliminate the friction between your data, your tools, and the outcomes your team needs. We do that through four focused capabilities — each one designed to remove a 
-                    specific category of operational drag from your business.  Whether you need a single workflow automated or a complete integration architecture designed from scratch, every engagement starts with a conversation. Use the form to tell us what you're
-                    working with.
-                </p>
+                @Html.Raw(Model.Paragraph)
             </div>
 
             <div class="service-section" id="workflow">
-                <div class="svc-eyebrow"><span></span> Service 01</div>
-                <h2>Workflow <em>Automation</em></h2>
-                <p> Replace every repetitive, error-prone manual process with intelligent pipelines that trigger, route, and resolve — without a human in the loop. Your team stops copy-pasting between tabs and starts 
-                    building what actually matters. </p>
-                <p>  Our visual workflow builder lets operations teams move fast without touching code. Engineers who want deeper control can drop into YAML at any point. Both modes write to the same underlying 
-                    spec — no hidden state, no divergence. </p>
-                <ul class="svc-points d-flex flex-column gap-2" style="margin-top: 24px; padding-left: 20px;">
-                    <li>Real-time trigger detection across any event source — webhook, database change, schedule, or API call</li>
-                    <li>Conditional branching and multi-step execution with full AND/OR logic support</li>
-                    <li>Fault-tolerant retry queues and dead-letter handling so partial failures never corrupt data silently</li>
-                    <li>Complete audit trail for every run — replay failed steps, inspect payloads, rollback instantly</li>
-                    <li>Scales to unlimited parallel executions with sub-15ms median trigger-to-action latency</li>
-                </ul>
-                <div class="d-flex flex-wrap gap-2" style="margin-top: 24px;">
-                    <span class="tag">Lead routing</span>
-                    <span class="tag">Invoice processing</span>
-                    <span class="tag">Onboarding flows</span>
-                    <span class="tag">Approval chains</span>
-                    <span class="tag">Report delivery</span>
-                </div>
+                @Html.Raw(Model.ServiceDetails)
             </div>
         </div>
+
+
 
         <div id="stickyColumn">
             <div class="sticky-form-wrapper">
@@ -58,28 +40,29 @@
                     <h3>Talk to our team</h3>
                     <div class="form-divider" style="margin: 16px 0 24px 0;"></div>
 
-                    <form id="contactForm" novalidate>
+                    <form asp-controller="Home"
+                          asp-action="serviceDetail"
+                          asp-route-url="@Model.URL"
+                          method="post"
+                          id="contactForm">
                         <div class="field mb-3">
-                            <input type="text" id="name" placeholder="Jane Smith" required style="width: 100%;" />
+                            <input type="text" name="Name" placeholder="Jane Smith" required style="width: 100%;" />
                         </div>
                         <div class="field mb-3">
-                            <input type="email" id="email" placeholder="jane@company.com" required style="width: 100%;" />
+                            <input type="email" name="Email" placeholder="jane@company.com" required style="width: 100%;" />
                         </div>
                         <div class="field mb-3">
-                            <input type="text" id="company" placeholder="Acme Inc." style="width: 100%;" />
+                            <input type="text" name="CompanyName" placeholder="Acme Inc." style="width: 100%;" />
                         </div>
                         <div class="field mb-3">
-                            <select id="service" style="width: 100%;">
+                            <select name="service" style="width: 100%;">
                                 <option value="" disabled selected>Select a service…</option>
-                                <option>Workflow Automation</option>
-                                <option>FluxEngine AI</option>
-                                <option>Integrations</option>
-                                <option>Consulting</option>
-                                <option>Not sure yet</option>
+                                <option value="Workflow-Automation">Workflow Automation</option>
+                                <option value="FluxEngine-AI">FluxEngine-AI</option>
                             </select>
                         </div>
                         <div class="field mb-3">
-                            <textarea id="message" placeholder="Briefly describe what's slowing your team down…" style="width: 100%; min-height: 100px;"></textarea>
+                            <textarea name="Message" placeholder="Briefly describe what's slowing your team down…" style="width: 100%; min-height: 100px;"></textarea>
                         </div>
                         <button type="submit" class="submit-btn" style="width: 100%;">Send Message</button>
                     </form>

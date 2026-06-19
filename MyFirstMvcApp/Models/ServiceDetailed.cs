@@ -10,6 +10,8 @@
 
         public string ServiceDetails { get; set; }
 
+        public string URL { get; set; }
+
         public DateTime TimeSpan { get; set; }
     }
 }

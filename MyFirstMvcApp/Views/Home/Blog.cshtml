@@ -1,4 +1,7 @@
-﻿@{
+﻿@model List<MyFirstMvcApp.Models.BlogCard>
+@using System.Text.RegularExpressions
+
+@{
     ViewData["Title"] = "Blog";
 }
 
@@ -27,107 +30,51 @@
 
         <div class="blog-grid-wrapper">
 
-            <div class="lf-blog-card gsap-reveal">
-                <div class="lf-img-container">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Ruthless reliability" />
-                    <span class="lf-card-badge">01</span>
-                </div>
-                <div class="lf-card-body">
-                    <h3>Ruthless reliability</h3>
-                    <p class="flex-grow-1">
-                        Workflows are mission-critical infrastructure. We hold ourselves to 99.99% uptime and treat every downtime minute as a personal failure. Reliability isn't a feature — it's the foundation.
-                    </p>
-                    <a href="/Home/BlogDetail" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1" style="color: #336443; font-size: 0.875rem;">
-                        Read More
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                </div>
-            </div>
+     @{
+        int count = 1;
+    }
 
-            <div class="lf-blog-card gsap-reveal">
-                <div class="lf-img-container">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="People over pipelines" />
-                    <span class="lf-card-badge">02</span>
-                </div>
-                <div class="lf-card-body">
-                    <h3>People over pipelines</h3>
-                    <p class="flex-grow-1">
-                        Technology should amplify human judgement, not replace it. We build tools that give people back the time to think, create, and make decisions — not tools that make decisions for them.
-                    </p>
-                    <a href="Blog-detailed.html" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1" style="color: #336443; font-size: 0.875rem;">
-                        Read More
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                </div>
-            </div>
+@foreach (var item in Model)
+{
+    <div class="lf-blog-card gsap-reveal">
+        <div class="lf-img-container">
+            <img src="@item.ImagePath" alt="@item.Heading" />
 
-            <div class="lf-blog-card gsap-reveal">
-                <div class="lf-img-container">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Radical transparency" />
-                    <span class="lf-card-badge">03</span>
-                </div>
-                <div class="lf-card-body">
-                    <h3>Radical transparency</h3>
-                    <p class="flex-grow-1">
-                        Every workflow run is fully observable. Every pricing tier is honestly documented. We don't hide complexity behind abstraction — we make it legible so you stay in control.
-                    </p>
-                    <a href="Blog-detailed.html" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1" style="color: #336443; font-size: 0.875rem;">
-                        Read More
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                </div>
-            </div>
+            <span class="lf-card-badge">
+                @count.ToString("D2")
+            </span>
+        </div>
 
-            <div class="lf-blog-card gsap-reveal">
-                <div class="lf-img-container">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Default to speed" />
-                    <span class="lf-card-badge">04</span>
-                </div>
-                <div class="lf-card-body">
-                    <h3>Default to speed</h3>
-                    <p class="flex-grow-1">
-                        Slow iteration is a form of disrespect to the people waiting for a solution. We ship fast, learn fast, and fix fast. Perfection is a direction, not a destination before launch.
-                    </p>
-                    <a href="Blog-detailed.html" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1" style="color: #336443; font-size: 0.875rem;">
-                        Read More
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                </div>
-            </div>
+        <div class="lf-card-body">
+            <h3>@item.Heading</h3>
 
-            <div class="lf-blog-card gsap-reveal">
-                <div class="lf-img-container">
-                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Security is non-negotiable" />
-                    <span class="lf-card-badge">05</span>
-                </div>
-                <div class="lf-card-body">
-                    <h3>Security is non-negotiable</h3>
-                    <p class="flex-grow-1">
-                        We handle sensitive data for thousands of teams. SOC 2 Type II, end-to-end encryption, and zero-trust architecture aren't checkboxes — they're the baseline we hold ourselves to from day one.
-                    </p>
-                    <a href="Blog-detailed.html" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1" style="color: #336443; font-size: 0.875rem;">
-                        Read More
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                </div>
-            </div>
+            <p class="flex-grow-1">
+               @{
+                 string text = Regex.Replace(item.Detail ?? "", "<.*?>", "").Trim();
+               }
 
-            <div class="lf-blog-card gsap-reveal">
-                <div class="lf-img-container">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Genuine curiosity" />
-                    <span class="lf-card-badge">06</span>
-                </div>
-                <div class="lf-card-body">
-                    <h3>Genuine curiosity</h3>
-                    <p class="flex-grow-1">
-                        The best automation ideas don't come from engineers alone — they come from listening obsessively to the people running operations at 2am. We stay close to the problem, always.
-                    </p>
-                    <a href="Blog-detailed.html" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1" style="color: #336443; font-size: 0.875rem;">
-                        Read More
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                </div>
-            </div>
+               @(text.Length > 120 ? text.Substring(0, 120) + "..." : text)
+            </p>
+
+            <a asp-controller="Home"
+               asp-action="BlogDetail"
+               asp-route-url="@item.URL"
+               class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1"
+               style="color:#336443;font-size:0.875rem;">
+                Read More
+                <svg width="16" height="16" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor"
+                     stroke-width="2.5" stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    count++;
+}
 
         </div>
     </div>

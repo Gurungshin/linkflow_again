@@ -803,8 +803,10 @@ namespace MyFirstMvcApp.Controllers
 
 
         [HttpGet]
-        public IActionResult AddBlogDetailed()
+        public IActionResult AddBlogDetailed(int? id)
         {
+            Blogdetails obj = new Blogdetails();
+
             List<BlogCard> list = new List<BlogCard>();
 
             string conStr = _configuration.GetConnectionString("DefaultConnection");
@@ -812,101 +814,224 @@ namespace MyFirstMvcApp.Controllers
             SqlConnection con = new SqlConnection(conStr);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT ID, URL FROM BlogCard ORDER BY ID DESC", con);
+            SqlCommand cmd = new SqlCommand("SELECT ID, URL FROM BlogCard", con);
+
             SqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {
-                BlogCard obj = new BlogCard();
-                obj.ID = Convert.ToInt32(dr["ID"]);
-                obj.URL = dr["URL"].ToString();
-                list.Add(obj);
+                list.Add(new BlogCard
+                {
+                    ID = Convert.ToInt32(dr["ID"]),
+                    URL = dr["URL"].ToString()
+                });
             }
 
             dr.Close();
+
+            if (id != null)
+            {
+                SqlCommand cmd1 = new SqlCommand("SELECT * FROM BlogDetails WHERE ID=@ID", con);
+                cmd1.Parameters.AddWithValue("@ID", id);
+
+                SqlDataReader dr1 = cmd1.ExecuteReader();
+
+                if (dr1.Read())
+                {
+                    obj.ID = Convert.ToInt32(dr1["ID"]);
+                    obj.BlogCardID = Convert.ToInt32(dr1["BlogCardID"]);
+                    obj.BlogHeading = dr1["BlogHeading"].ToString();
+                    obj.ImagePath = dr1["ImagePath"].ToString();
+                    obj.Author = dr1["Author"].ToString();
+                    obj.Keyword = dr1["Keyword"].ToString();
+                    obj.URL = dr1["URL"].ToString();
+                    obj.Paragraph = dr1["Paragraph"].ToString();
+                }
+
+                dr1.Close();
+            }
+
             con.Close();
 
             ViewBag.BlogList = list;
-            return View();
+
+            return View(obj);
         }
 
         [HttpPost]
         public IActionResult AddBlogDetailed(Blogdetails obj)
         {
             string conStr = _configuration.GetConnectionString("DefaultConnection");
-            string dbImagePath = "";
+            string imagePath = obj.ImagePath;
 
-            // 1. Handle saving the uploaded file physically to wwwroot/serverImage
+            // Upload Image
             if (obj.ImageFile != null && obj.ImageFile.Length > 0)
             {
-                string uploadFolder = Path.Combine(_environment.WebRootPath, "serverImage");
+                string folder = Path.Combine(_environment.WebRootPath, "serverImage");
 
-                if (!Directory.Exists(uploadFolder))
+                if (!Directory.Exists(folder))
                 {
-                    Directory.CreateDirectory(uploadFolder);
+                    Directory.CreateDirectory(folder);
                 }
 
                 string fileName = Guid.NewGuid().ToString() + Path.GetExtension(obj.ImageFile.FileName);
-                string filePath = Path.Combine(uploadFolder, fileName);
+                string filePath = Path.Combine(folder, fileName);
 
                 using (FileStream stream = new FileStream(filePath, FileMode.Create))
                 {
                     obj.ImageFile.CopyTo(stream);
                 }
 
-                dbImagePath = "/serverImage/" + fileName;
+                imagePath = "/serverImage/" + fileName;
             }
 
-            // 2. Open connection, grab the matching BlogCardID, and perform insert
-            using (SqlConnection con = new SqlConnection(conStr))
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            // Get URL from BlogCard
+            string url = "";
+
+            SqlCommand urlCmd = new SqlCommand("SELECT URL FROM BlogCard WHERE ID=@ID", con);
+            urlCmd.Parameters.AddWithValue("@ID", obj.BlogCardID);
+
+            object result = urlCmd.ExecuteScalar();
+
+            if (result != null)
             {
-                con.Open();
-
-                // Optional but Smart: Get the actual ID belonging to the selected URL string
-                int actualBlogCardID = 0;
-                if (!string.IsNullOrEmpty(obj.URL))
-                {
-                    string idQuery = "SELECT TOP 1 ID FROM BlogCard WHERE URL = @SelectedURL";
-                    using (SqlCommand idCmd = new SqlCommand(idQuery, con))
-                    {
-                        idCmd.Parameters.AddWithValue("@SelectedURL", obj.URL);
-                        object result = idCmd.ExecuteScalar();
-                        if (result != null)
-                        {
-                            actualBlogCardID = Convert.ToInt32(result);
-                        }
-                    }
-                }
-
-                // Main Insert Query
-                string query = @"INSERT INTO BlogDetails 
-                         (BlogCardID, BlogHeading, ImagePath, Author, Keyword, URL, Paragraph) 
-                         VALUES 
-                         (@BlogCardID, @BlogHeading, @ImagePath, @Author, @Keyword, @URL, @Paragraph)";
-
-                SqlCommand cmd = new SqlCommand(query, con);
-
-                // Bulletproof parameter definitions handling C# null variables smoothly
-                cmd.Parameters.AddWithValue("@BlogCardID", actualBlogCardID);
-                cmd.Parameters.AddWithValue("@BlogHeading", (object)obj.BlogHeading ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@ImagePath", string.IsNullOrEmpty(dbImagePath) ? DBNull.Value : (object)dbImagePath);
-                cmd.Parameters.AddWithValue("@Author", (object)obj.Author ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@Keyword", (object)obj.Keyword ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@Paragraph", (object)obj.Paragraph ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@URL", (object)obj.URL ?? DBNull.Value); // CRASH REMEDIED HERE
-
-                cmd.ExecuteNonQuery();
-                con.Close();
+                url = result.ToString();
             }
 
-            TempData["Message"] = "Blog Details Saved Successfully";
+            SqlCommand cmd;
+
+            if (obj.ID > 0)
+            {
+                // UPDATE
+                cmd = new SqlCommand(@"
+        UPDATE BlogDetails
+        SET BlogCardID=@BlogCardID,
+            BlogHeading=@BlogHeading,
+            ImagePath=@ImagePath,
+            Author=@Author,
+            Keyword=@Keyword,
+            URL=@URL,
+            Paragraph=@Paragraph
+        WHERE ID=@ID", con);
+
+                cmd.Parameters.AddWithValue("@ID", obj.ID);
+
+                TempData["Message"] = "Blog Details Updated Successfully";
+            }
+            else
+            {
+                // INSERT
+                cmd = new SqlCommand(@"
+        INSERT INTO BlogDetails
+        (BlogCardID,BlogHeading,ImagePath,Author,Keyword,URL,Paragraph)
+        VALUES
+        (@BlogCardID,@BlogHeading,@ImagePath,@Author,@Keyword,@URL,@Paragraph)", con);
+
+                TempData["Message"] = "Blog Details Saved Successfully";
+            }
+
+            cmd.Parameters.AddWithValue("@BlogCardID", obj.BlogCardID);
+            cmd.Parameters.AddWithValue("@BlogHeading", obj.BlogHeading ?? "");
+            cmd.Parameters.AddWithValue("@ImagePath", imagePath ?? "");
+            cmd.Parameters.AddWithValue("@Author", obj.Author ?? "");
+            cmd.Parameters.AddWithValue("@Keyword", obj.Keyword ?? "");
+            cmd.Parameters.AddWithValue("@URL", url);
+            cmd.Parameters.AddWithValue("@Paragraph", obj.Paragraph ?? "");
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
             return RedirectToAction("BlogDetailed");
         }
 
 
         public IActionResult BlogDetailed()
         {
-            return View();
+            List<Blogdetails> list = new List<Blogdetails>();
+
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            SqlConnection con = new SqlConnection(conStr);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BlogDetails ORDER BY ID DESC", con);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Blogdetails obj = new Blogdetails();
+
+                obj.ID = Convert.ToInt32(dr["ID"]);
+                obj.BlogCardID = Convert.ToInt32(dr["BlogCardID"]);
+                obj.BlogHeading = dr["BlogHeading"].ToString();
+                obj.ImagePath = dr["ImagePath"].ToString();
+                obj.Author = dr["Author"].ToString();
+                obj.Keyword = dr["Keyword"].ToString();
+                obj.URL = dr["URL"].ToString();
+                obj.Paragraph = dr["Paragraph"].ToString();
+
+                if (dr["TimeSpan"] != DBNull.Value)
+                {
+                    obj.TimeSpan = Convert.ToDateTime(dr["TimeSpan"]);
+                }
+
+                list.Add(obj);
+            }
+
+            dr.Close();
+            con.Close();
+
+            return View(list);
+        }
+
+        public IActionResult DeleteBlogDetailed(int id)
+        {
+            string conStr = _configuration.GetConnectionString("DefaultConnection");
+
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                con.Open();
+
+                // Get image path
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT ImagePath FROM BlogDetails WHERE ID=@ID", con);
+
+                cmd.Parameters.AddWithValue("@ID", id);
+
+                string imagePath = Convert.ToString(cmd.ExecuteScalar());
+
+                // Delete record
+                SqlCommand cmd1 = new SqlCommand(
+                    "DELETE FROM BlogDetails WHERE ID=@ID", con);
+
+                cmd1.Parameters.AddWithValue("@ID", id);
+
+                cmd1.ExecuteNonQuery();
+
+                con.Close();
+
+                // Delete image from wwwroot/serverImage
+                if (!string.IsNullOrEmpty(imagePath))
+                {
+                    string fullPath = Path.Combine(
+                        _environment.WebRootPath,
+                        imagePath.TrimStart('/').Replace("/", "\\"));
+
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+                }
+            }
+
+            TempData["Message"] = "Blog Detail Deleted Successfully";
+
+            return RedirectToAction("BlogDetailed");
         }
 
     }

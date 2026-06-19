@@ -1,4 +1,6 @@
-﻿@{
+﻿@model MyFirstMvcApp.Models.Blogdetails
+
+@{
     ViewData["Title"] = "Blog details";
 }
 
@@ -18,59 +20,49 @@
 
     <div class="article-header-block">
         <div class="d-flex align-items-center gap-3 blog-meta-inline mb-3" style="font-size: 0.875rem;">
-            <span>16 June 2026</span>
+            <span>@Model.TimeSpan.ToString("dd MMMM yyyy")</span>
             <span class="blog-meta-dot"></span>
-            <span>Design, Branding</span>
+            <span>@Model.Keyword</span>
             <span class="blog-meta-dot"></span>
-            <span>10 Min Read</span>
+            @{
+                var plainText = System.Text.RegularExpressions.Regex.Replace(Model.Paragraph ?? "", "<.*?>", "");
+                var words = plainText.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+                var readTime = Math.Max(1, (int)Math.Ceiling(words / 200.0));
+            }
+
+            <span>@readTime Min Read</span>
         </div>
         <p class="blog-meta-desc mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
 
     <div class="article-hero-media">
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="LinkFlow data visual" />
+        <img src="@Model.ImagePath" alt="LinkFlow data visual" />
     </div>
 
     <div class="article-split-layout" id="mainArticleRow">
 
         <article class="blog-main-content gsap-reveal" id="articleContent">
-            <h1 class="mt-0" style="font-size: calc(1.375rem + 1.5vw); line-height: 1.2; font-weight: 400;">Elit ullamcorper dignissim</h1>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit ullamcorper dignissim cras tincidunt. Enim neque volutpat ac
-                tincidunt vitae. Dictum at tempor commodo ullamcorper a lacus vestibulum sed. Condimentum mattis pellentesque id nibh tortor id. Nisl condimentum id venenatis a condimentum. </p>
-
-            <p>Nunc sed blandit libero volutpat sed. Tristique sollicitudin nibh sit amet commodo. Sit amet justo donec enim diam vulputate ut pharetra. Quis imperdiet massa tincidunt nunc pulvinar sapien 
-                et ligula ullamcorper. Massa vitae tortor condimentum lacinia quis vel. Hendrerit dolor magna eget est lorem ipsum dolor. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id.
-                Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet consectetur.  </p>
-
-            <h2 style="font-size: calc(1.3rem + 0.6vw); font-weight: 500; margin-top: 32px;">Hendrerit dolor magna</h2>
-            <p> Tristique sollicitudin nibh sit amet commodo. Sit amet justo donec enim diam vulputate ut pharetra. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Massa vitae
-                tortor condimentum lacinia quis vel. Hendrerit dolor magna eget est lorem ipsum dolor. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Suspendisse faucibus 
-                interdum posuere. </p>
-
-            <h2 style="font-size: calc(1.3rem + 0.6vw); font-weight: 500; margin-top: 32px;">Hendrerit dolor magna</h2>
-            <p> Tristique sollicitudin nibh sit amet commodo. Sit amet justo donec enim diam vulputate ut pharetra. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper.
-                Massa vitae tortor condimentum lacinia quis vel. Hendrerit dolor magna eget est lorem ipsum dolor. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Suspendisse 
-                faucibus interdum posuere. </p>
+            <h1 class="mt-0" style="font-size: calc(1.375rem + 1.5vw); line-height: 1.2; font-weight: 400;">@Model.BlogHeading </h1>
+              <div>
+                @Html.Raw(Model.Paragraph)
+              </div>
         </article>
 
         <aside class="sidebar-border-box">
             <div id="stickySidebarInner" style="width: 100%;">
 
                 <div class="mb-4">
-                    <div class="author-title text-uppercase" style="font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; color: #1f2a1d;">Author</div>
-                    <div class="author-name" style="font-size: 1.125rem; font-weight: 500; color: #1f2a1d; margin-top: 0.25rem;">Guy Hawkins</div>
-                    <p class="author-bio text-muted mt-2 mb-0" style="font-size: 0.875rem; color: #4b5b47; line-height: 1.6;"> Tristique sollicitudin nibh sit amet commodo. Sit amet justo donec enim diam 
-                        vulputate ut pharetra. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula.  </p>
+                    @Html.Raw(Model.Author)
                 </div>
 
-                <div class="share-box-container">
+              @*   <div class="share-box-container">
                     <div class="author-title text-uppercase mb-3" style="font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; color: #1f2a1d; margin-bottom: 12px;">Share</div>
                     <div class="d-flex gap-2">
                         <a href="#" class="share-circle" aria-label="Share on Facebook">FB</a>
                         <a href="#" class="share-circle" aria-label="Share on LinkedIn">LN</a>
                         <a href="#" class="share-circle" aria-label="Share on Twitter / X">TW</a>
                     </div>
-                </div>
+                </div> *@
 
             </div>
         </aside>
@@ -85,49 +77,51 @@
 
         <div class="related-news-grid">
 
-            <div class="d-flex flex-column">
-                <div class="related-card-img mb-3">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Related Article Thumb" />
-                </div>
-                <h4 class="fw-medium text-dark mb-1" style="font-size: 1rem; margin: 0 0 4px 0; line-height: 1.4;">Building an Enterprise SLA Strategy Loop</h4>
-                <span class="text-muted small mb-3" style="margin-bottom: 12px; display: block;">12 June 2026</span>
-                <a href="#" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1" style="color: #336443; font-size: 0.8125rem;">
-                    Read More
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline>
-                 </svg>
-                </a>
-            </div>
+            @foreach (var item in ViewBag.RelatedBlogs)
+            {
+                <div class="d-flex flex-column">
 
-            <div class="d-flex flex-column">
-                <div class="related-card-img mb-3">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Related Article Thumb" />
-                </div>
-                <h4 class="fw-medium text-dark mb-1" style="font-size: 1rem; margin: 0 0 4px 0; line-height: 1.4;">How FluxEngine AI Interprets Signal Ambiguity</h4>
-                <span class="text-muted small mb-3" style="margin-bottom: 12px; display: block;">04 June 2026</span>
-                <a href="#" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1" style="color: #336443; font-size: 0.8125rem;">
-                    Read More
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </div>
+                    <div class="related-card-img mb-3">
+                        <img src="@item.ImagePath" alt="@item.Heading" />
+                    </div>
 
-            <div class="d-flex flex-column">
-                <div class="related-card-img mb-3">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Related Article Thumb" />
+                    <h4 class="fw-medium text-dark mb-1"
+                        style="font-size: 1rem; margin: 0 0 4px 0; line-height: 1.4;">
+                        @item.Heading
+                    </h4>
+
+                    <span class="text-muted small mb-3"
+                          style="margin-bottom: 12px; display: block;">
+                        @item.TimeSpan.ToString("dd MMMM yyyy")
+                    </span>
+
+                    <a asp-controller="Home"
+                       asp-action="BlogDetail"
+                       asp-route-url="@item.URL"
+                       class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1"
+                       style="color: #336443; font-size: 0.8125rem;">
+
+                        Read More
+
+                        <svg width="14" height="14"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2.5"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+
+                    </a>
+
                 </div>
-                <h4 class="fw-medium text-dark mb-1" style="font-size: 1rem; margin: 0 0 4px 0; line-height: 1.4;">Scaling Automated Pipelines Without Data Leakage</h4>
-                <span class="text-muted small mb-3" style="margin-bottom: 12px; display: block;">28 May 2026</span>
-                <a href="#" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1" style="color: #336443; font-size: 0.8125rem;">
-                    Read More
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </div>
+            }
+
 
         </div>
     </section>
 
 </main>
+
