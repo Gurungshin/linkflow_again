@@ -22,27 +22,26 @@
             <label id="mess">@TempData["Message"]</label>
         }
 
-        <div class="form-group full-width">
-            <label>Heading (Title)</label>
-            <input type="text"
-                   name="Heading"
-                   value="@Model?.Heading"
-                   placeholder="e.g., Master Signal Ingestion Hub"
-                   required />
+        <div class="form-row">
+            <div class="form-group">
+                <label>Heading (Title)</label>
+                 <input type="text"  name="Heading" value="@Model?.Heading"   placeholder="e.g., Master Signal Ingestion Hub" required />
+             </div>
+
+            <div class="form-group">
+                <label>Url</label>
+                <input type="text" name="URL" value="@Model?.URL" placeholder="Url" required />
+            </div>
         </div>
 
         <div class="form-group full-width">
             <label>Paragraph</label>
-            <textarea id="editor"
-                      name="Paragraph"
-                      placeholder="Describe the structural logic mapping...">@Model?.Paragraph</textarea>
+            <textarea id="editor"   name="Paragraph"  placeholder="Describe the structural logic mapping...">@Model?.Paragraph</textarea>
         </div>
 
         <div class="form-group full-width">
             <label>Service detailed</label>
-            <textarea id="editor2"
-                      name="ServiceDetails"
-                      placeholder="Describe the secondary logic mapping...">@Model?.ServiceDetails</textarea>
+            <textarea id="editor2"  name="ServiceDetails" placeholder="Describe the secondary logic mapping...">@Model?.ServiceDetails</textarea>
         </div>
 
         <div class="form-actions">

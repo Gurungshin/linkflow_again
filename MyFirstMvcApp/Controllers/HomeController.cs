@@ -19,9 +19,6 @@ namespace MyFirstMvcApp.Controllers
 
         public IActionResult Index()
         {
-
-            ViewData["Title"] = "LinkFlow | Workflow Automation & AI Integration";
-            ViewData["Description"] = "LinkFlow helps businesses automate workflows, integrate systems, and streamline operations with intelligent automation and AI solutions.";
             LoadServiceMenu();
             return View();
         }
@@ -61,6 +58,13 @@ namespace MyFirstMvcApp.Controllers
             return View();
         }
 
+        public IActionResult Tearm()
+        {
+            LoadServiceMenu();
+            return View();
+        }
+
+       
         public IActionResult About()
         {
             LoadServiceMenu();

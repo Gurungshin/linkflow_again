@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\views\\home\\tearm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\home\\tearm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\views\\home\\blogdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\views\\home\\blogdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|c:\\users\\dell\\onedrive\\desktop\\myfirstmvcapp\\myfirstmvcapp\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{67DF7A8D-ECF6-F202-FB8B-6B144DF6157E}|MyFirstMvcApp\\MyFirstMvcApp.csproj|solutionrelative:myfirstmvcapp\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,28 +50,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "Tearm.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Home\\Tearm.cshtml",
+              "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Home\\Tearm.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Home\\Tearm.cshtml",
+              "RelativeToolTip": "MyFirstMvcApp\\Views\\Home\\Tearm.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-20T08:36:58.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "MyFirstMvcApp\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Controllers\\HomeController.cs",
               "RelativeToolTip": "MyFirstMvcApp\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAwwCgAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAiwD8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T12:45:35.581Z",
+              "WhenOpened": "2026-06-20T08:35:23.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "MyFirstMvcApp\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABQAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-20T08:34:51.638Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "_footer.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Shared\\_footer.cshtml",
+              "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Shared\\_footer.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Shared\\_footer.cshtml",
+              "RelativeToolTip": "MyFirstMvcApp\\Views\\Shared\\_footer.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-20T08:30:42.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "BlogDetail.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Home\\BlogDetail.cshtml",
               "RelativeDocumentMoniker": "MyFirstMvcApp\\Views\\Home\\BlogDetail.cshtml",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\Views\\Home\\BlogDetail.cshtml",
               "RelativeToolTip": "MyFirstMvcApp\\Views\\Home\\BlogDetail.cshtml",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAAwHcAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAAcAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-19T12:38:30.191Z",
+              "WhenOpened": "2026-06-20T06:43:12.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\wwwroot\\css\\style.css",
+              "RelativeDocumentMoniker": "MyFirstMvcApp\\wwwroot\\css\\style.css",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Desktop\\MyFirstMvcApp\\MyFirstMvcApp\\wwwroot\\css\\style.css",
+              "RelativeToolTip": "MyFirstMvcApp\\wwwroot\\css\\style.css",
+              "ViewState": "AgIAAIIDAAAAAAAAAAAAAJADAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-06-20T06:39:33.326Z",
               "EditorCaption": ""
             }
           ]

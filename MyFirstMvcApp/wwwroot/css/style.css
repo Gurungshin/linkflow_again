@@ -10,6 +10,16 @@ body {
   max-width: 100vw;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 /* ════════════════════════════════
    HERO & PARALLAX BACKGROUND
 ════════════════════════════════ */
@@ -894,4 +904,16 @@ footer {
   .btn-know { color: #3d5638; }
   .steps-grid { grid-template-columns: 1fr; }
   .mission-stats { grid-template-columns: 1fr 1fr; }
+}
+
+.sidebar-border-box {
+    position: sticky;
+    top: 120px;
+    align-self: flex-start;
+}
+
+#stickySidebarInner {
+    position: sticky;
+    top: 20px; /* Distance from top when scrolling */
+    width: 100%;
 }

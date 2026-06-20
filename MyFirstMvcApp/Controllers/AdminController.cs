@@ -350,6 +350,7 @@ namespace MyFirstMvcApp.Controllers
                     obj.ID = Convert.ToInt32(dr["ID"]);
                     obj.Heading = dr["Heading"].ToString();
                     obj.Paragraph = dr["Paragraph"].ToString();
+                    obj.URL = dr["URL"].ToString();
                     obj.ServiceDetails = dr["ServiceDetails"].ToString();
                 }
 
@@ -374,7 +375,8 @@ namespace MyFirstMvcApp.Controllers
                     string query = @"UPDATE ServiceDetailed
                          SET Heading = @Heading,
                              Paragraph = @Paragraph,
-                             ServiceDetails = @ServiceDetails
+                             ServiceDetails = @ServiceDetails,
+                             URL = @URL
                          WHERE ID = @ID";
 
                     SqlCommand cmd = new SqlCommand(query, con);
@@ -383,6 +385,7 @@ namespace MyFirstMvcApp.Controllers
                     cmd.Parameters.AddWithValue("@Heading", obj.Heading);
                     cmd.Parameters.AddWithValue("@Paragraph", obj.Paragraph);
                     cmd.Parameters.AddWithValue("@ServiceDetails", obj.ServiceDetails);
+                    cmd.Parameters.AddWithValue("@URL", obj.URL);
 
                     cmd.ExecuteNonQuery();
 
@@ -392,13 +395,16 @@ namespace MyFirstMvcApp.Controllers
                 {
                     // INSERT
                     string query = @"INSERT INTO ServiceDetailed
-                         (Heading, Paragraph, ServiceDetails)  VALUES (@Heading, @Paragraph, @ServiceDetails)";
+                         (Heading, Paragraph, ServiceDetails, URL)
+                         VALUES
+                         (@Heading, @Paragraph, @ServiceDetails, @URL)";
 
                     SqlCommand cmd = new SqlCommand(query, con);
 
                     cmd.Parameters.AddWithValue("@Heading", obj.Heading);
                     cmd.Parameters.AddWithValue("@Paragraph", obj.Paragraph);
                     cmd.Parameters.AddWithValue("@ServiceDetails", obj.ServiceDetails);
+                    cmd.Parameters.AddWithValue("@URL", obj.URL);
 
                     cmd.ExecuteNonQuery();
 
@@ -431,12 +437,14 @@ namespace MyFirstMvcApp.Controllers
                     ID = Convert.ToInt32(dr["ID"]),
                     Heading = dr["Heading"].ToString(),
                     Paragraph = dr["Paragraph"].ToString(),
+                    URL = dr["URL"].ToString(),   // Use "URL" instead of "url"
                     ServiceDetails = dr["ServiceDetails"].ToString(),
                     TimeSpan = Convert.ToDateTime(dr["TimeSpan"])
                 });
             }
 
-            con.Close();
+            dr.Close();   // Close the reader
+            con.Close();  // Then close the connection
 
             return View(serviceList);
         }

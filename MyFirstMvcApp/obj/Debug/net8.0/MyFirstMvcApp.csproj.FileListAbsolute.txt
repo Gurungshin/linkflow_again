@@ -152,3 +152,5 @@ C:\Users\DELL\OneDrive\Desktop\MyFirstMvcApp\MyFirstMvcApp\obj\Debug\net8.0\refi
 C:\Users\DELL\OneDrive\Desktop\MyFirstMvcApp\MyFirstMvcApp\obj\Debug\net8.0\MyFirstMvcApp.pdb
 C:\Users\DELL\OneDrive\Desktop\MyFirstMvcApp\MyFirstMvcApp\obj\Debug\net8.0\MyFirstMvcApp.genruntimeconfig.cache
 C:\Users\DELL\OneDrive\Desktop\MyFirstMvcApp\MyFirstMvcApp\obj\Debug\net8.0\ref\MyFirstMvcApp.dll
+C:\Users\DELL\OneDrive\Desktop\MyFirstMvcApp\MyFirstMvcApp\bin\Debug\net8.0\DotLiquid.dll
+C:\Users\DELL\OneDrive\Desktop\MyFirstMvcApp\MyFirstMvcApp\bin\Debug\net8.0\it\DotLiquid.resources.dll

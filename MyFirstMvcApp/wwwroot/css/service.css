@@ -448,22 +448,22 @@
     height: 240px; overflow: hidden; border-radius: 1rem; background-color: #f5f3ee;
   }
 
-   ol, ul {
-     padding-left: 0rem; 
+ol, ul {
+    padding-left: 30px;
 }
 
-
-
-
+.footer-col ul {
+    padding-left: 0px !important;
+}
 /* ===================== COMBINED PRE-SETS & STYLES ===================== */
 :root {
-  --lf-green: #336443;
-  --lf-green-light: #eaf3ec;
-  --lf-cream: #faf9f5;
-  --lf-dark: #111612;
-  --lf-text-main: #111;
-  --lf-text-muted: #666;
-  --purple-accent: #7ec99a;
+    --lf-green: #336443;
+    --lf-green-light: #eaf3ec;
+    --lf-cream: #faf9f5;
+    --lf-dark: #111612;
+    --lf-text-main: #111;
+    --lf-text-muted: #666;
+    --purple-accent: #7ec99a;
 }
 
 /* ---- RETAINED INTERACTIVE HERO ---- */
